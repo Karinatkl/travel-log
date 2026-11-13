@@ -1,8 +1,8 @@
 ---
 layout: trip
 trip_id: <trip_id>                 # YYYY-MM-國家-slug，同 CSV 一致
-title: <中文標題>｜<YYYY.MM.DD – MM.DD>
-title_en: <English title>
+title: YYYY.MMDD-MMDD 地點          # 例：2026.1111-1113 深圳南山
+title_en: YYYY.MMDD-MMDD <Place>    # 例：2026.1111-1113 Shenzhen Nanshan
 cover: /photos/<trip_id>/cover.jpg
 status: PLANNING                   # 只可以用 §4 八個值
 start_date: YYYY-MM-DD

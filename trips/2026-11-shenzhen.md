@@ -1,8 +1,8 @@
 ---
 layout: trip
 trip_id: 2026-11-shenzhen
-title: 深圳兩日 · 同 Fai
-title_en: Shenzhen with Fai
+title: 2026.1111-1113 深圳南山
+title_en: 2026.1111-1113 Shenzhen Nanshan
 cover: /photos/2026-11-shenzhen/cover.jpg
 status: COMPLETED
 start_date: 2026-11-11
