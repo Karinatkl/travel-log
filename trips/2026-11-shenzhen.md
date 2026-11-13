@@ -110,4 +110,4 @@ gallery:
 
 ## 8. 花費
 
-**[花費明細（🔒 要密碼）→](/trips/2026-11-shenzhen/spending/)**
+**[花費明細（🔒 要密碼）→]({{ '/trips/2026-11-shenzhen/spending/' | relative_url }})**
