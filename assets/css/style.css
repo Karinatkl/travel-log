@@ -273,3 +273,21 @@ code {
   border-radius: 8px;
   cursor: pointer;
 }
+
+/* ── 相片＋標題（標題喺圖下面）────────────── */
+.gallery .shot {
+  display: flex; flex-direction: column; gap: 6px;
+  aspect-ratio: auto; overflow: visible; background: none;
+  border-radius: 0;
+}
+.gallery .shot a {
+  display: block; aspect-ratio: 1 / 1; overflow: hidden;
+  border-radius: 8px; background: #eee8e0;
+}
+.gallery .shot figcaption {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-align: center;
+  padding: 0 2px;
+}
