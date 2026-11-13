@@ -24,10 +24,10 @@ locked: true
 
 <script>
 (function () {
-  var SALT = "ab9a683d2e66f51f9558fb094fca9508";
-  var IV = "b08ff0a7cf89c276e68f10c6e20705e3";
+  // salt / iv 跟密文一齊放喺同一個 JSON，換密碼時只需換一個檔，
+  // 就算瀏覽器 cache 住舊版頁面都唔會撞版本。
   var ITER = 100000;
-  var SRC = "{{ '/assets/enc/2026-11-shenzhen-spending.txt' | relative_url }}";
+  var SRC = "{{ '/assets/enc/2026-11-shenzhen-spending.json' | relative_url }}";
 
   var box = document.getElementById("lockbox");
   var out = document.getElementById("out");
@@ -49,16 +49,24 @@ locked: true
     return a;
   }
 
+  var PACK = null;
+
+  async function loadPack() {
+    if (PACK) return PACK;
+    PACK = await (await fetch(SRC, { cache: "no-store" })).json();
+    return PACK;
+  }
+
   async function decrypt(pass) {
-    var raw = await (await fetch(SRC, { cache: "no-store" })).text();
+    var pack = await loadPack();
     var base = await crypto.subtle.importKey(
       "raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveKey"]
     );
     var key = await crypto.subtle.deriveKey(
-      { name: "PBKDF2", salt: hex(SALT), iterations: ITER, hash: "SHA-256" },
+      { name: "PBKDF2", salt: hex(pack.salt), iterations: ITER, hash: "SHA-256" },
       base, { name: "AES-CBC", length: 256 }, false, ["decrypt"]
     );
-    var plain = await crypto.subtle.decrypt({ name: "AES-CBC", iv: hex(IV) }, key, b64(raw));
+    var plain = await crypto.subtle.decrypt({ name: "AES-CBC", iv: hex(pack.iv) }, key, b64(pack.ct));
     return new TextDecoder().decode(plain);
   }
 
@@ -72,7 +80,9 @@ locked: true
       box.hidden = true; out.hidden = false; again.hidden = false;
       try { sessionStorage.setItem("tl_pw", p); } catch (e) {}
     } catch (e) {
-      err.textContent = "密碼唔啱，再試一次。";
+      err.textContent = (typeof crypto === "undefined" || !crypto.subtle)
+        ? "呢個瀏覽器唔支援解密，換 Chrome／Safari 再試。"
+        : "密碼唔啱，再試一次。";
       btn.disabled = false; btn.textContent = "解鎖";
     }
   }
