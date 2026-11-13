@@ -224,3 +224,52 @@ code {
   .trip-table .num { text-align: left; }
   .gallery { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
 }
+
+/* ── 加密花費頁 ───────────────────────────── */
+.lockbox {
+  max-width: 420px;
+  margin: 48px auto;
+  padding: 28px 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  text-align: center;
+}
+.lock-icon { font-size: 34px; line-height: 1; margin-bottom: 12px; }
+.lock-title { font-size: 18px; font-weight: 600; margin: 0 0 6px; }
+.lock-desc { font-size: 13px; color: var(--dim); margin: 0 0 20px; line-height: 1.6; }
+.lock-row { display: flex; gap: 8px; }
+.lock-row input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 10px 12px;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.lock-row input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.lock-row button {
+  flex: 0 0 auto;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.lock-row button:disabled { opacity: .6; cursor: default; }
+.lock-err { min-height: 20px; margin: 12px 0 0; font-size: 13px; color: #c0392b; }
+.lock-again { text-align: center; margin: 40px 0 0; }
+.btn-ghost {
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--dim);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
