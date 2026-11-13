@@ -4,7 +4,9 @@ Karena 嘅行程總表。**呢個表由 `_data/trips.csv` 自動生成，唔准�
 
 網站（總表 + 逐個行程詳情頁）：<https://karinatkl.github.io/travel-log/>
 
-_仲未有行程。改 `_data/trips.csv` 加第一行。_
+| 行程 | 日期 | 晚 | 地區 | 類型 | 狀態 | 使費 HKD | 相／片 | 詳情 |
+|---|---|---|---|---|---|---|---|---|
+| **深圳兩日 · 同 Fai** | 11-11 – 11-13 | 2 | Shenzhen | LEISURE | `ONGOING` | — | 0／0 | [詳情](trips/2026-11-shenzhen.md) |
 
 ---
 
