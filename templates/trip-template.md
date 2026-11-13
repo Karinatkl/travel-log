@@ -21,11 +21,7 @@ spending: /trips/<trip_id>/spending/
 
 **整體：** 兩三句，講呢個 trip 嘅性質同節奏（趕／鬆、單點／多站）。
 
-### 原定計劃對照
-
-| 計劃 | 實際 | 對得上？ |
-|---|---|---|
-|  |  |  |
+> **唔寫「原定計劃對照」。** 覆盤只講結果同判斷，唔好重列計劃書。
 
 ### 做對咗
 
@@ -37,7 +33,9 @@ spending: /trips/<trip_id>/spending/
 
 ### 下次改
 
--
+> 只寫**具體行動**，一句就夠，唔好寫「下次要留意」呢類空話。
+
+- 例：洗牙要事先預約，唔好當 walk-in。
 
 ### 會唔會再去
 
@@ -81,9 +79,15 @@ spending: /trips/<trip_id>/spending/
 
 {% include gallery.html trip_id="<trip_id>" %}
 
-| 檔名 | 內容 | 對應 |
-|---|---|---|
-|  |  |  |
+> 相片清單寫喺 front matter 嘅 `gallery:`，標題會印喺**圖下面**：
+>
+> ```yaml
+> gallery:
+>   - file: 001-<desc>.jpg
+>     caption: 一句描述（店名＋食物／場合）
+> ```
+>
+> **唔准喺網頁顯示檔名**，亦唔准用表格列相片。
 
 ## 7. 影片
 
@@ -95,4 +99,6 @@ spending: /trips/<trip_id>/spending/
 
 👉 所有金額、分類、逐項明細同 AA 結算，喺獨立一頁：
 
-**[花費明細 →](/trips/<trip_id>/spending/)**
+**[花費明細 →]({{ '/trips/<trip_id>/spending/' | relative_url }})**
+
+> 只留呢一條連結，前後唔准加任何說明文字。內部連結**一定要** `relative_url`，否則缺 baseurl 會 404。
