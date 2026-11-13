@@ -1,0 +1,36 @@
+name: Build README
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "_data/trips.csv"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Regenerate README from trips.csv
+        run: python scripts/gen_readme.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name "travel-log-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add README.md
+          if git diff --cached --quiet; then
+            echo "README 無變動"
+          else
+            git commit -m "data: regenerate README from trips.csv"
+            git push
+          fi

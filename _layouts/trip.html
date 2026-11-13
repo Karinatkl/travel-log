@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<article class="trip">
+  <header class="trip-head">
+    <a class="back" href="{{ '/' | relative_url }}">← 返總表</a>
+    <h1>{{ page.title }}</h1>
+    <p class="trip-meta">
+      <span class="pill" data-status="{{ page.status }}">{{ page.status | default: "未設定" }}</span>
+      <span>{{ page.start_date }} – {{ page.end_date }}</span>
+      {% if page.city %}<span>{{ page.city }}</span>{% endif %}
+      {% if page.trip_type %}<span class="tag">{{ page.trip_type }}</span>{% endif %}
+    </p>
+    {% if page.cover %}
+      <img class="cover" src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+</article>

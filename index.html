@@ -1,0 +1,91 @@
+---
+layout: default
+title: 行程總表
+description: 所有行程一頁睇清 — 日期、地區、狀態、使費、相片、影片。
+---
+
+<section class="page-head">
+  <h1>行程總表</h1>
+  <p class="sub">
+    {% if site.data.trips %}{{ site.data.trips | size }} 個行程{% else %}0 個行程{% endif %}
+    · 由 <code>_data/trips.csv</code> 自動讀取
+  </p>
+</section>
+
+{% if site.data.trips and site.data.trips.size > 0 %}
+{% assign trips = site.data.trips | sort: 'start_date' | reverse %}
+
+<div class="filters">
+  <input id="q" type="search" placeholder="搜尋行程／城市／國家…" autocomplete="off">
+  <select id="f-status">
+    <option value="">全部狀態</option>
+    {% assign st = site.data.trips | map: 'status' | uniq | sort %}
+    {% for s in st %}<option value="{{ s }}">{{ s }}</option>{% endfor %}
+  </select>
+  <select id="f-type">
+    <option value="">全部類型</option>
+    {% assign ty = site.data.trips | map: 'trip_type' | uniq | sort %}
+    {% for x in ty %}<option value="{{ x }}">{{ x }}</option>{% endfor %}
+  </select>
+  <select id="f-country">
+    <option value="">全部地區</option>
+    {% assign co = site.data.trips | map: 'country' | uniq | sort %}
+    {% for c in co %}<option value="{{ c }}">{{ c }}</option>{% endfor %}
+  </select>
+  <span class="result-count" id="count"></span>
+</div>
+
+<div class="table-scroll">
+<table class="trip-table" id="trip-table">
+  <thead>
+    <tr>
+      <th data-sort="text" data-key="start">日期</th>
+      <th data-sort="text" data-key="title">行程</th>
+      <th>地區</th>
+      <th>類型</th>
+      <th>狀態</th>
+      <th class="num">晚</th>
+      <th class="num">使費 HKD</th>
+      <th class="num">相／片</th>
+      <th>詳情</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for t in trips %}
+    <tr
+      data-status="{{ t.status }}"
+      data-type="{{ t.trip_type }}"
+      data-country="{{ t.country }}"
+      data-start="{{ t.start_date }}"
+      data-title="{{ t.title_zh }}"
+      data-search="{{ t.title_zh }} {{ t.title_en }} {{ t.city }} {{ t.country }} {{ t.trip_type }}"
+    >
+      <td class="nowrap">{{ t.start_date | slice: 5, 5 }}<span class="dim"> – {{ t.end_date | slice: 5, 5 }}</span></td>
+      <td>
+        <a class="trip-link" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">{{ t.title_zh }}</a>
+        {% if t.title_en %}<span class="en">{{ t.title_en }}</span>{% endif %}
+      </td>
+      <td>{{ t.city | default: t.country | default: "—" }}</td>
+      <td><span class="tag">{{ t.trip_type | default: "—" }}</span></td>
+      <td><span class="pill" data-status="{{ t.status }}">{{ t.status | default: "—" }}</span></td>
+      <td class="num">{{ t.nights | default: "—" }}</td>
+      <td class="num">
+        {%- if t.spent_hkd -%}{{ t.spent_hkd }}
+        {%- elsif t.budget_hkd -%}<span class="dim">~{{ t.budget_hkd }}</span>
+        {%- else -%}—{%- endif -%}
+      </td>
+      <td class="num">{{ t.photo_count | default: 0 }}／{{ t.video_count | default: 0 }}</td>
+      <td><a class="detail" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">睇 →</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<p class="empty" id="empty" hidden>冇符合條件嘅行程。</p>
+
+{% else %}
+<p class="empty">
+  仲未有行程。改 <code>_data/trips.csv</code> 加第一行，或者叫 AI 幫你入。
+</p>
+{% endif %}

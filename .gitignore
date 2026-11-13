@@ -1,0 +1,24 @@
+.DS_Store
+Thumbs.db
+
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+Gemfile.lock
+
+# 影片永遠只放 YouTube，唔准入 repo
+*.mp4
+*.mov
+*.avi
+*.mkv
+
+# 未整理嘅原檔
+*.HEIC
+*.heic
+*.RAF
+*.CR2
+*.NEF
+
+# 相片壓縮臨時檔
+*.tmp.jpg
