@@ -171,7 +171,7 @@ code {
 /* ── 相簿 / 影片 ────────────────────── */
 .gallery {
   display: grid; gap: 8px; margin: 18px 0 8px;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 .gallery .shot {
   display: block; aspect-ratio: 1 / 1; overflow: hidden;
@@ -222,7 +222,7 @@ code {
     font-size: 12px; color: var(--dim); flex: 0 0 auto;
   }
   .trip-table .num { text-align: left; }
-  .gallery { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+  .gallery { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
 }
 
 /* ── 加密花費頁 ───────────────────────────── */
@@ -281,7 +281,7 @@ code {
   border-radius: 0;
 }
 .gallery .shot a {
-  display: block; aspect-ratio: 1 / 1; overflow: hidden;
+  display: block; aspect-ratio: 3 / 4; overflow: hidden;
   border-radius: 8px; background: #eee8e0;
 }
 .gallery .shot figcaption {
