@@ -3,6 +3,7 @@ layout: trip
 trip_id: 2026-11-shenzhen
 title: 深圳兩日 · 同 Fai
 title_en: Shenzhen with Fai
+cover: /photos/2026-11-shenzhen/cover.jpg
 status: COMPLETED
 start_date: 2026-11-11
 end_date: 2026-11-13
@@ -117,6 +118,17 @@ permalink: /trips/2026-11-shenzhen/
 ## 7. 相片
 
 {% include gallery.html trip_id="2026-11-shenzhen" %}
+
+| 檔名 | 內容 | 對應 |
+|---|---|---|
+| 001-hotpot-dinner.jpg | 雞煲火鍋，手打肉丸同生牛肉片 | 11/11 雞叔 |
+| 002-hotel-room.jpg | 秋果酒店走廊／木格柵同綠植 | 11/11 入住 |
+| 003-beef-soup.jpg | 清湯牛肉粉，滿碗青蔥 | 11/12 潮文牛肉店 |
+| 004-tomosoon-cafe.jpg | 抹茶蛋糕＋橙醬咖啡 | 11/12 TOMOSOON |
+| 005-purso-spa.jpg | 浦 PURSO SPA 接待處招牌 | 11/12 淋巴按摩 |
+| 006-crab-dinner-1.jpg | 豬手、炸物、蟹湯 | 11/12 美團蟹餐 |
+| 007-crab-dinner-2.jpg | 蟹膏蒸蛋（整隻蟹件排盤）| 11/12 美團蟹餐 |
+| 008-eel-grill.jpg | 石爐炭火烤鰻 | 11/13 火鰻 |
 
 ## 8. 影片
 
