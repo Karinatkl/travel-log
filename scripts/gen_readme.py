@@ -22,7 +22,7 @@ VALID_STATUS = {
 
 HEAD = """# Travel Log｜旅行檔案
 
-Karena 嘅行程總表。**呢個表由 `_data/trips.csv` 自動生成，唔准手動改。**
+Karina 嘅行程總表。**呢個表由 `_data/trips.csv` 自動生成，唔准手動改。**
 
 網站（總表 + 逐個行程詳情頁）：<https://karinatkl.github.io/travel-log/>
 
