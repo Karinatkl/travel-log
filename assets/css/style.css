@@ -291,3 +291,23 @@ code {
   text-align: center;
   padding: 0 2px;
 }
+
+/* ---- 總表封面縮圖 ---- */
+.trip-cell { display: flex; align-items: center; gap: 12px; }
+.thumb {
+  flex: 0 0 auto;
+  width: 76px; height: 56px;
+  border-radius: 8px; overflow: hidden;
+  border: 1px solid var(--line);
+  display: block;
+}
+.thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb-empty {
+  display: flex; align-items: center; justify-content: center;
+  background: #f2efe9; color: #a29a8c; font-size: 11px; text-decoration: none;
+}
+.trip-txt { min-width: 0; }
+@media (max-width: 600px) {
+  .thumb { width: 56px; height: 42px; }
+  .trip-cell { gap: 9px; }
+}

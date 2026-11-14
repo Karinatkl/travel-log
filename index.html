@@ -43,7 +43,6 @@ description: 所有行程一頁睇清 — 日期、地區、類型、狀態。
       <th data-sort="text" data-key="title">行程</th>
       <th>地區</th>
       <th>類型</th>
-      <th>狀態</th>
       <th class="num">晚</th>
       <th>詳情</th>
     </tr>
@@ -60,12 +59,25 @@ description: 所有行程一頁睇清 — 日期、地區、類型、狀態。
     >
       <td class="nowrap">{{ t.start_date | slice: 5, 5 }}<span class="dim"> – {{ t.end_date | slice: 5, 5 }}</span></td>
       <td>
-        <a class="trip-link" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">{{ t.title_zh }}</a>
-        {% if t.title_en %}<span class="en">{{ t.title_en }}</span>{% endif %}
+        {%- assign tp = site.pages | where: "trip_id", t.trip_id | first -%}
+        <div class="trip-cell">
+          {%- if tp.cover -%}
+            <a class="thumb" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">
+              <img src="{{ tp.cover | relative_url }}" alt="{{ t.title_zh }}" loading="lazy">
+            </a>
+          {%- else -%}
+            <a class="thumb thumb-empty" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">
+              <span>未有相</span>
+            </a>
+          {%- endif -%}
+          <div class="trip-txt">
+            <a class="trip-link" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">{{ t.title_zh }}</a>
+            {% if t.title_en %}<span class="en">{{ t.title_en }}</span>{% endif %}
+          </div>
+        </div>
       </td>
       <td>{{ t.city | default: t.country | default: "—" }}</td>
       <td><span class="tag">{{ t.trip_type | default: "—" }}</span></td>
-      <td><span class="pill" data-status="{{ t.status }}">{{ t.status | default: "—" }}</span></td>
       <td class="num">{{ t.nights | default: "—" }}</td>
       <td><a class="detail" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">睇 →</a></td>
     </tr>
