@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 行程總表
-description: 所有行程一頁睇清 — 日期、地區、狀態、使費、相片、影片。
+description: 所有行程一頁睇清 — 日期、地區、類型、狀態。
 ---
 
 <section class="page-head">
@@ -45,8 +45,6 @@ description: 所有行程一頁睇清 — 日期、地區、狀態、使費、�
       <th>類型</th>
       <th>狀態</th>
       <th class="num">晚</th>
-      <th class="num">使費 HKD</th>
-      <th class="num">相／片</th>
       <th>詳情</th>
     </tr>
   </thead>
@@ -69,12 +67,6 @@ description: 所有行程一頁睇清 — 日期、地區、狀態、使費、�
       <td><span class="tag">{{ t.trip_type | default: "—" }}</span></td>
       <td><span class="pill" data-status="{{ t.status }}">{{ t.status | default: "—" }}</span></td>
       <td class="num">{{ t.nights | default: "—" }}</td>
-      <td class="num">
-        {%- if t.spent_hkd -%}{{ t.spent_hkd }}
-        {%- elsif t.budget_hkd -%}<span class="dim">~{{ t.budget_hkd }}</span>
-        {%- else -%}—{%- endif -%}
-      </td>
-      <td class="num">{{ t.photo_count | default: 0 }}／{{ t.video_count | default: 0 }}</td>
       <td><a class="detail" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">睇 →</a></td>
     </tr>
     {% endfor %}
