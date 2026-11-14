@@ -42,7 +42,8 @@ lng: 115.1900
 | **Amed** | 9/21 – 9/27 | 潛店別墅 | 考 AOW：9/22 兩潛體驗、9/25 Euro Five Star 兩潛；其間上網課 |
 | **Ubud** | 9/27 – 10/2 | Bisma Jaya Bungalow | 聖猴森林、Pison、髒鴨餐、ATV（Cretya Sunset）、Campuhan Ridge、10/1 Mount Batur 日出＋Kecak、10/2 銀飾製作 |
 | **Canggu（衝浪營）** | 10/2 – 10/4 | Wave House Surf Camp | 衝浪營，有錄影覆盤教學 |
-| **Canggu（Berawa）** | 10/4 – 10/14 | Cove Kavana | 衝浪、瑜伽、普拉提、Animal Flow、音療、市集；網課主力期 |
+| **Canggu（Sekala）** | 10/4 – 10/9 | Sekala CoLiving | 滑浪、瑜伽、普拉提、Animal Flow、市集；網課主力期 |
+| **Canggu（Berawa）** | 10/9 – 10/14 | Cove Kavana | 衝浪、音療、Spa；網課 |
 | **機場過夜** | 10/14 – 10/15 | Harris Hotel Tuban | 趕 10/15 凌晨早班機返港 |
 
 ## 3. 逐日誌
@@ -73,7 +74,7 @@ lng: 115.1900
 
 10/2 晚入住 **Wave House Surf Camp**，衝浪營模式，每節都有錄影覆盤。
 
-10/3 午餐 Littletalk，晚餐 Pistachio。10/4 搬去 **Cove Kavana**（Berawa 海邊），晚餐 Warung Sunshine Ho，夜晚去 M Mart 補雜貨。
+10/3 午餐 Littletalk，晚餐 Pistachio。10/4 搬去 **Sekala CoLiving**，晚餐 Warung Sunshine Ho，夜晚去 M Mart 補雜貨。
 
 10/5 13:00–15:00 落水滑浪，另加購滑浪相；黃昏去沙灘睇日落，夜晚 Margaret Bistro。
 
@@ -83,7 +84,7 @@ lng: 115.1900
 
 10/8 11:00 Animal Flow Beginner，之後去市集買手作同布料；17:00 Yoga；19:00 睇日落；夜晚晚餐包喺住宿。
 
-10/9 05:43 就出動去 Wave House，Baby Reef 滑浪四小時；13:45 做 Spa；16:00 轉酒店；黃昏 Beach Sunset，夜晚 Hippie Fish。
+10/9 05:43 就出動去 Wave House，Baby Reef 滑浪四小時；13:45 做 Spa；16:00 轉酒店搬去 **Cove Kavana**（Berawa 海邊）；黃昏 Beach Sunset，夜晚 Hippie Fish。
 
 10/10 11:30 tutorial class，14:15 Cafe Little Brew，之後兩節 tutorial，夜晚 GoFood。
 
@@ -113,7 +114,8 @@ lng: 115.1900
 | 9/21 – 9/27 | 潛店別墅（Amed） | 落水方便，潛店接送 |
 | 9/27 – 10/2 | **Bisma Jaya Bungalow** | Jalan Bisma，cafe 一條街，行得去猴林／皇宮／市場；有泳池、露台、包早餐、免費 WiFi；前台可代約漂流、越野吉普、包車 |
 | 10/2 – 10/4 | **Wave House Surf Camp** | Canggu，衝浪營，帶錄影覆盤教學 |
-| 10/4 – 10/14 | **Cove Kavana** | Canggu Berawa 海邊，衝浪、瑜伽、普拉提、音療冥想，數碼遊民生活 |
+| 10/4 – 10/9 | **Sekala CoLiving** | Canggu，數碼遊民共居，瑜伽／普拉提／Animal Flow 課堂都喺附近 |
+| 10/9 – 10/14 | **Cove Kavana** | Canggu Berawa 海邊，衝浪、瑜伽、普拉提、音療冥想 |
 | 10/14 – 10/15 | **Harris Hotel Tuban** | 機場周邊，過夜等凌晨早班機 |
 
 ## 6. 相片
@@ -126,4 +128,4 @@ lng: 115.1900
 
 ## 8. 花費
 
-花費仲喺飛書表未整理完，等總數定咗先開加密花費頁。
+**[花費明細（🔒 要密碼）→]({{ '/trips/2026-09-indonesia-bali/spending/' | relative_url }})**
