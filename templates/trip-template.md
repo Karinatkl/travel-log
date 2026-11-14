@@ -11,6 +11,8 @@ city: <City / City2>
 trip_type: LEISURE                 # SPORT / LEISURE / DIGITAL_NOMAD / TRANSIT / BUSINESS / FAMILY
 permalink: /trips/<trip_id>/
 spending: /trips/<trip_id>/spending/
+lat: <緯度>                        # 例 22.5395，用嚟喺 /map/ 出點
+lng: <經度>                        # 例 113.9840
 ---
 
 > 一句話總結（≤ 40 字，粵語）。**唔准加「TL;DR」標籤**，亦唔准寫金額 —— 金額全部放花費頁。
