@@ -1,0 +1,76 @@
+---
+layout: default
+title: 世界地圖
+description: 將所有行程畫喺世界地圖 — 邊個國家、邊個城市去過，一睇就知。
+permalink: /map/
+leaflet: true
+---
+
+<style>
+  #worldmap {
+    height: 72vh; min-height: 420px;
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--surface);
+  }
+  .map-legend { font-size: 12.5px; color: var(--dim); margin: 10px 0 0; }
+  .leaflet-popup-content { font-family: inherit; font-size: 13px; line-height: 1.6; }
+  .leaflet-popup-content a { color: var(--accent); font-weight: 600; }
+</style>
+
+<section class="page-head">
+  <h1>去過邊</h1>
+  <p class="sub">所有行程嘅位置。撳個點就見行程名同日期，可以直接跳去詳情頁。</p>
+</section>
+
+<div id="worldmap"></div>
+<p class="map-legend">地圖底圖 © OpenStreetMap 貢獻者 · 每個點對應一個行程（<code>trips/*.md</code> 嘅 <code>lat</code>／<code>lng</code>）</p>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  var TRIPS = [
+  {%- assign first = true -%}
+  {%- for p in site.pages -%}
+    {%- if p.layout == 'trip' and p.lat and p.lng -%}
+      {%- unless first %},{% endunless -%}
+      {
+        "lat": {{ p.lat }},
+        "lng": {{ p.lng }},
+        "t": {{ p.title | jsonify }},
+        "u": {{ p.url | relative_url | jsonify }},
+        "s": {{ p.status | default: "" | jsonify }},
+        "d": {{ p.start_date | default: "" | jsonify }},
+        "e": {{ p.end_date | default: "" | jsonify }}
+      }
+      {%- assign first = false -%}
+    {%- endif -%}
+  {%- endfor -%}
+  ];
+
+  var map = L.map("worldmap", { scrollWheelZoom: true, worldCopyJump: true });
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 18,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+
+  if (!TRIPS.length) {
+    map.setView([22.3, 114.2], 4);
+  } else {
+    var bounds = [];
+    TRIPS.forEach(function (t) {
+      var m = L.marker([t.lat, t.lng]).addTo(map);
+      m.bindPopup(
+        '<strong>' + t.t + '</strong><br>' +
+        (t.d ? t.d + (t.e && t.e !== t.d ? " – " + t.e : "") + '<br>' : "") +
+        (t.s ? '<span style="color:#918a80">' + t.s + '</span><br>' : "") +
+        '<a href="' + t.u + '">睇行程 →</a>'
+      );
+      bounds.push([t.lat, t.lng]);
+    });
+    if (bounds.length === 1) {
+      map.setView(bounds[0], 12);
+    } else {
+      map.fitBounds(bounds, { padding: [40, 40] });
+    }
+  }
+</script>

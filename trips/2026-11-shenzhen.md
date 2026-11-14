@@ -11,6 +11,8 @@ city: Shenzhen
 trip_type: LEISURE
 permalink: /trips/2026-11-shenzhen/
 spending: /trips/2026-11-shenzhen/spending/
+lat: 22.5395            # 華僑城創意文化園一帶
+lng: 113.9840
 gallery:
   - file: 001-hotpot-dinner.jpg
     caption: 雞煲火鍋 — 手打肉丸同生牛肉片
