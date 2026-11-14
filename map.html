@@ -14,6 +14,9 @@ leaflet: true
   }
   .map-legend { font-size: 12.5px; color: var(--dim); margin: 10px 0 0; }
   .leaflet-popup-content { font-family: inherit; font-size: 13px; line-height: 1.6; }
+  .map-legend .lg { display: inline-flex; align-items: center; gap: 6px; margin-right: 16px; }
+  .map-legend .lg i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+  .tl-pin { background: transparent; border: 0; }
   .leaflet-popup-content a { color: var(--accent); font-weight: 600; }
 </style>
 
@@ -23,7 +26,11 @@ leaflet: true
 </section>
 
 <div id="worldmap"></div>
-<p class="map-legend">地圖底圖 © OpenStreetMap 貢獻者 · 每個點對應一個行程（<code>trips/*.md</code> 嘅 <code>lat</code>／<code>lng</code>）</p>
+<p class="map-legend">
+  <span class="lg"><i style="background:#2563eb"></i>藍 pin＝同行（有人一齊去）</span>
+  <span class="lg"><i style="background:#7c3aed"></i>紫 pin＝自己去</span>
+  <span class="lg dim">底圖 © OpenStreetMap 貢獻者</span>
+</p>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -40,11 +47,12 @@ leaflet: true
         "s": {{ p.status | default: "" | jsonify }},
         "d": {{ p.start_date | default: "" | jsonify }},
         "e": {{ p.end_date | default: "" | jsonify }},
+        "so": {{ p.solo | default: false }},
         "pts": [
           {%- assign f2 = true -%}
           {%- for pt in p.points -%}
             {%- unless f2 %},{% endunless -%}
-            { "n": {{ pt.name | jsonify }}, "la": {{ pt.lat }}, "lo": {{ pt.lng }} }
+            { "n": {{ pt.name | jsonify }}, "la": {{ pt.lat }}, "lo": {{ pt.lng }}, "so": {{ pt.solo | default: false }} }
             {%- assign f2 = false -%}
           {%- endfor -%}
         ]
@@ -65,6 +73,20 @@ leaflet: true
     map.setView([22.3, 114.2], 4);
   } else {
     var bounds = [];
+    var BLUE = "#2563eb", PURPLE = "#7c3aed";
+
+    function pinFor(solo) {
+      var c = solo ? PURPLE : BLUE;
+      return L.divIcon({
+        className: "tl-pin",
+        html: '<svg width="24" height="34" viewBox="0 0 24 34">' +
+              '<path d="M12 33C12 33 23 18.5 23 12A11 11 0 1 0 1 12C1 18.5 12 33 12 33Z" ' +
+              'fill="' + c + '" stroke="#fff" stroke-width="2"/>' +
+              '<circle cx="12" cy="12" r="4" fill="#fff"/></svg>',
+        iconSize: [24, 34], iconAnchor: [12, 33], popupAnchor: [0, -30]
+      });
+    }
+
     function popup(t, name) {
       return '<strong>' + (name ? name + '｜' : '') + t.t + '</strong><br>' +
         (t.d ? t.d + (t.e && t.e !== t.d ? " – " + t.e : "") + '<br>' : "") +
@@ -76,11 +98,11 @@ leaflet: true
       // 有 points 就每個基地一個點，冇就用單一 lat/lng
       if (t.pts && t.pts.length) {
         t.pts.forEach(function (pt) {
-          L.marker([pt.la, pt.lo]).addTo(map).bindPopup(popup(t, pt.n));
+          L.marker([pt.la, pt.lo], { icon: pinFor(pt.so) }).addTo(map).bindPopup(popup(t, pt.n));
           bounds.push([pt.la, pt.lo]);
         });
       } else {
-        L.marker([t.lat, t.lng]).addTo(map).bindPopup(popup(t, ""));
+        L.marker([t.lat, t.lng], { icon: pinFor(t.so) }).addTo(map).bindPopup(popup(t, ""));
         bounds.push([t.lat, t.lng]);
       }
     });

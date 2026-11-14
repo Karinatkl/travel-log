@@ -12,10 +12,10 @@ permalink: /trips/2026-09-indonesia-bali/
 spending: /trips/2026-09-indonesia-bali/spending/
 lat: -8.6478            # Canggu（代表點）
 lng: 115.1385
-points:                  # 三站各自一個點，世界地圖會逐個出 pin
-  - { name: Amed, lat: -8.3390, lng: 115.6570 }
-  - { name: Ubud, lat: -8.5069, lng: 115.2625 }
-  - { name: Canggu, lat: -8.6478, lng: 115.1385 }
+points:                  # 三站各自一個點；solo: true = 自己去（紫 pin）
+  - { name: Amed, lat: -8.3390, lng: 115.6570, solo: false }   # 同 Fai
+  - { name: Ubud, lat: -8.5069, lng: 115.2625, solo: true }    # 9/27 Fai 走
+  - { name: Canggu, lat: -8.6478, lng: 115.1385, solo: true }
 ---
 
 > 25 日三站旅居：Amed 潛水攞 AOW、Ubud 住足一週、Canggu 滑浪同課程。邊做網課邊旅居，唔係觀光團。
@@ -43,12 +43,13 @@ points:                  # 三站各自一個點，世界地圖會逐個出 pin
 
 | 站 | 日期 | 住邊 | 主要做咩 |
 |---|---|---|---|
-| **Amed** | 9/21 – 9/27 | 潛店別墅 | 考 AOW：9/22 兩潛體驗、9/25 Euro Five Star 兩潛；其間上網課 |
+| **Amed** | 9/21 – 9/27 | 潛店別墅 | Fun dive：9/22 兩潛體驗、9/25 Euro Five Star 兩潛；其間上網課 |
 | **Ubud** | 9/27 – 10/2 | Bisma Jaya Bungalow | 聖猴森林、Pison、髒鴨餐、ATV（Cretya Sunset）、Campuhan Ridge、10/1 Mount Batur 日出＋Kecak、10/2 銀飾製作 |
 | **Canggu（衝浪營）** | 10/2 – 10/4 | Wave House Surf Camp | 衝浪營，有錄影覆盤教學 |
 | **Canggu（Sekala）** | 10/4 – 10/9 | Sekala CoLiving | 滑浪、瑜伽、普拉提、Animal Flow、市集；網課主力期 |
 | **Canggu（Berawa）** | 10/9 – 10/14 | Cove Kavana | 衝浪、音療、Spa；網課 |
-| **機場過夜** | 10/14 – 10/15 | Harris Hotel Tuban | 趕 10/15 凌晨早班機返港 |
+| **機場過夜** | 10/14 – 10/15 | Harris Hotel Tuban | 趕 10/15 07:15 早班機 |
+| **新加坡快閃** | 10/15 | — | 07:15 DPS 飛新加坡，免費市區遊（魚尾獅）、肉骨茶、同 Stella 飲咖啡，19:00 飛返港 |
 
 ## 3. 逐日誌
 
@@ -56,7 +57,7 @@ points:                  # 三站各自一個點，世界地圖會逐個出 pin
 
 9/20 夜晚由元朗搭 Uber 去深圳灣過關，再轉車去機場，經吉隆坡轉機。9/21 抵達 DPS，包車直入 Amed，途中辦 SIM 卡。
 
-9/22 朝早 07:55 離開酒店去潛店，做兩潛體驗。之後幾日就係潛水＋網課交錯：9/23 兩節課（16:30–18:30、20:30–21:30）、9/24 去 Alala Spa、9/25 08:00 集合再落兩潛（Euro Five Star）、9/26 喺別墅上堂。
+今次唔係考證，係 fun dive —— 兩次下水、兩間潛店，純粹落水玩。9/22 朝早 07:55 離開酒店去潛店，做兩潛體驗。之後幾日就係潛水＋網課交錯：9/23 兩節課（16:30–18:30、20:30–21:30）、9/24 去 Alala Spa、9/25 08:00 集合再落兩潛（Euro Five Star）、9/26 喺別墅上堂。
 
 9/27 上午離開 Amed，同 Fai 食完午餐，Fai 去機場返港，自己搬去 Ubud。
 
@@ -100,16 +101,20 @@ points:                  # 三站各自一個點，世界地圖會逐個出 pin
 
 10/14 08:00–12:00 退房，13:00 午餐，14:00 搭 Grab（約一個鐘）搬去機場邊 Harris Hotel Tuban，15:30–20:30 連環 tutorial class，夜晚晚餐。
 
-### 機場過夜｜10 月 14–15 日
+### 機場過夜｜10 月 14 日
 
-住 Harris Hotel Tuban，貪近機場。10/15 凌晨早班機返香港。
+住 Harris Hotel Tuban，貪近機場，第二朝唔使趕車。
+
+### 新加坡快閃｜10 月 15 日
+
+07:15 DPS 起飛去新加坡。轉機時間夠長，join 咗機場嘅免費市區遊：去魚尾獅打卡，食肉骨茶，再同朋友 Stella 飲咖啡。夜晚 19:00–23:00 飛返香港，10/15 當日到埗。
 
 ## 4. 交通
 
 - **去程：** 元朗 → 深圳灣 Uber → 機場 → 香港飛（吉隆坡轉機）→ DPS，落機包車入 Amed
 - **轉場：** Amed → Ubud 包車；Ubud → Canggu 包車（約 1.5–2 小時）；Canggu → 機場 10/14 搭 Grab（約一個鐘）
 - **當地：** Gojek / GoRide / GoCar 為主，短程 5–40 港元級
-- **回程：** 10/15 凌晨 DPS 早班機返香港（航班待補）
+- **回程：** 10/15 07:15 DPS → 新加坡（免費市區遊：魚尾獅、肉骨茶、Stella 咖啡）→ 19:00–23:00 返港，同日到
 
 ## 5. 住宿
 
