@@ -39,7 +39,15 @@ leaflet: true
         "u": {{ p.url | relative_url | jsonify }},
         "s": {{ p.status | default: "" | jsonify }},
         "d": {{ p.start_date | default: "" | jsonify }},
-        "e": {{ p.end_date | default: "" | jsonify }}
+        "e": {{ p.end_date | default: "" | jsonify }},
+        "pts": [
+          {%- assign f2 = true -%}
+          {%- for pt in p.points -%}
+            {%- unless f2 %},{% endunless -%}
+            { "n": {{ pt.name | jsonify }}, "la": {{ pt.lat }}, "lo": {{ pt.lng }} }
+            {%- assign f2 = false -%}
+          {%- endfor -%}
+        ]
       }
       {%- assign first = false -%}
     {%- endif -%}
@@ -57,15 +65,24 @@ leaflet: true
     map.setView([22.3, 114.2], 4);
   } else {
     var bounds = [];
-    TRIPS.forEach(function (t) {
-      var m = L.marker([t.lat, t.lng]).addTo(map);
-      m.bindPopup(
-        '<strong>' + t.t + '</strong><br>' +
+    function popup(t, name) {
+      return '<strong>' + (name ? name + '｜' : '') + t.t + '</strong><br>' +
         (t.d ? t.d + (t.e && t.e !== t.d ? " – " + t.e : "") + '<br>' : "") +
         (t.s ? '<span style="color:#918a80">' + t.s + '</span><br>' : "") +
-        '<a href="' + t.u + '">睇行程 →</a>'
-      );
-      bounds.push([t.lat, t.lng]);
+        '<a href="' + t.u + '">睇行程 →</a>';
+    }
+
+    TRIPS.forEach(function (t) {
+      // 有 points 就每個基地一個點，冇就用單一 lat/lng
+      if (t.pts && t.pts.length) {
+        t.pts.forEach(function (pt) {
+          L.marker([pt.la, pt.lo]).addTo(map).bindPopup(popup(t, pt.n));
+          bounds.push([pt.la, pt.lo]);
+        });
+      } else {
+        L.marker([t.lat, t.lng]).addTo(map).bindPopup(popup(t, ""));
+        bounds.push([t.lat, t.lng]);
+      }
     });
     if (bounds.length === 1) {
       map.setView(bounds[0], 12);

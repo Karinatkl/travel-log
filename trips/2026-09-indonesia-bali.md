@@ -10,8 +10,12 @@ city: Bali / Amed / Ubud / Canggu
 trip_type: DIGITAL_NOMAD
 permalink: /trips/2026-09-indonesia-bali/
 spending: /trips/2026-09-indonesia-bali/spending/
-lat: -8.4500
-lng: 115.1900
+lat: -8.6478            # Canggu（代表點）
+lng: 115.1385
+points:                  # 三站各自一個點，世界地圖會逐個出 pin
+  - { name: Amed, lat: -8.3390, lng: 115.6570 }
+  - { name: Ubud, lat: -8.5069, lng: 115.2625 }
+  - { name: Canggu, lat: -8.6478, lng: 115.1385 }
 ---
 
 > 25 日三站旅居：Amed 潛水攞 AOW、Ubud 住足一週、Canggu 滑浪同課程。邊做網課邊旅居，唔係觀光團。
