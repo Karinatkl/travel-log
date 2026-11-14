@@ -59,11 +59,12 @@ description: 所有行程一頁睇清 — 日期、地區、類型、狀態。
     >
       <td class="nowrap">{{ t.start_date | slice: 5, 5 }}<span class="dim"> – {{ t.end_date | slice: 5, 5 }}</span></td>
       <td>
-        {%- assign tp = site.pages | where: "trip_id", t.trip_id | first -%}
+        {%- assign cpath = '/photos/' | append: t.trip_id | append: '/cover.jpg' -%}
+        {%- assign cov = site.static_files | where: "path", cpath | first -%}
         <div class="trip-cell">
-          {%- if tp.cover -%}
+          {%- if cov -%}
             <a class="thumb" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">
-              <img src="{{ tp.cover | relative_url }}" alt="{{ t.title_zh }}" loading="lazy">
+              <img src="{{ cpath | relative_url }}" alt="{{ t.title_zh }}" loading="lazy">
             </a>
           {%- else -%}
             <a class="thumb thumb-empty" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">
