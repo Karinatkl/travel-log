@@ -18,7 +18,7 @@ points:                  # 三站各自一個點；solo: true = 自己去（紫 
   - { name: Canggu, lat: -8.6478, lng: 115.1385, solo: true }
 ---
 
-> 25 日三站旅居：Amed 潛水攞 AOW、Ubud 住足一週、Canggu 滑浪同課程。邊做網課邊旅居，唔係觀光團。
+> 25 日三站旅居：Amed 落水 fun dive、Ubud 住足一週、Canggu 滑浪同課程，最後 10/15 新加坡快閃一日。邊做網課邊旅居，唔係觀光團。
 
 ## 1. 覆盤
 
