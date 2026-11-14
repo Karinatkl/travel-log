@@ -133,7 +133,7 @@ points:                  # 三站各自一個點；solo: true = 自己去（紫 
 
 ## 7. 影片
 
-今次冇拍片。
+{% include video.html url="https://www.instagram.com/reel/Deyzp3TzR_utsVi1hVZXAdWdA8CDXGiOuW4XI40/" title="峇里島 2026 三站旅居 — Instagram Reel" %}
 
 ## 8. 花費
 

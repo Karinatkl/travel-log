@@ -1,17 +1,46 @@
-{%- comment -%} 把 youtu.be / watch?v= / shorts/ 三種寫法統一抽出 VIDEO_ID {%- endcomment -%}
-{%- assign vid = include.url -%}
-{%- if vid contains 'youtu.be/' -%}{%- assign vid = vid | split: 'youtu.be/' | last -%}
-{%- elsif vid contains '/shorts/' -%}{%- assign vid = vid | split: '/shorts/' | last -%}
-{%- elsif vid contains 'v=' -%}{%- assign vid = vid | split: 'v=' | last -%}
-{%- endif -%}
-{%- assign vid = vid | split: '?' | first | split: '&' | first | strip -%}
+{%- comment -%}
+  影片 embed：支援 YouTube 同 Instagram Reels。
+  YouTube 支援 youtu.be / watch?v= / shorts/
+  Instagram 支援 /reel/<code>/ 同 /p/<code>/
+{%- endcomment -%}
 
-<div class="video">
-  <iframe
-    src="https://www.youtube.com/embed/{{ vid }}?rel=0"
-    title="{{ include.title | default: '影片' }}"
-    loading="lazy"
-    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen></iframe>
-  {% if include.title %}<p class="video-cap">{{ include.title }}</p>{% endif %}
-</div>
+{%- assign u = include.url | split: '?' | first | split: '&' | first | strip -%}
+
+{%- if u contains 'instagram.com' -%}
+  {%- if u contains '/reel/' -%}{%- assign code = u | split: '/reel/' | last -%}
+  {%- elsif u contains '/reels/' -%}{%- assign code = u | split: '/reels/' | last -%}
+  {%- elsif u contains '/p/' -%}{%- assign code = u | split: '/p/' | last -%}
+  {%- else -%}{%- assign code = u | split: '/' | last -%}
+  {%- endif -%}
+  {%- assign code = code | split: '/' | first | strip -%}
+
+  <div class="video video-portrait">
+    <iframe
+      src="https://www.instagram.com/reel/{{ code }}/embed/captioned/"
+      title="{{ include.title | default: 'Instagram Reel' }}"
+      loading="lazy"
+      scrolling="no"
+      allowtransparency="true"
+      allowfullscreen></iframe>
+    {% if include.title %}<p class="video-cap">{{ include.title }}</p>{% endif %}
+    <p class="video-cap"><a href="{{ u }}" rel="noopener">喺 Instagram 睇原片 →</a></p>
+  </div>
+
+{%- else -%}
+  {%- assign vid = u -%}
+  {%- if vid contains 'youtu.be/' -%}{%- assign vid = vid | split: 'youtu.be/' | last -%}
+  {%- elsif vid contains '/shorts/' -%}{%- assign vid = vid | split: '/shorts/' | last -%}
+  {%- elsif vid contains 'v=' -%}{%- assign vid = vid | split: 'v=' | last -%}
+  {%- endif -%}
+  {%- assign vid = vid | split: '/' | first | strip -%}
+
+  <div class="video">
+    <iframe
+      src="https://www.youtube.com/embed/{{ vid }}?rel=0"
+      title="{{ include.title | default: '影片' }}"
+      loading="lazy"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    {% if include.title %}<p class="video-cap">{{ include.title }}</p>{% endif %}
+  </div>
+{%- endif -%}

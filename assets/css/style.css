@@ -187,6 +187,12 @@ code {
   border: 0; border-radius: var(--radius); background: #000;
 }
 .video-cap { margin: 8px 0 0; font-size: 13px; color: var(--ink-2); }
+.video-portrait { display: flex; flex-direction: column; align-items: center; }
+.video-portrait iframe {
+  width: 100%; max-width: 400px; aspect-ratio: 9 / 16;
+  border: 0; border-radius: var(--radius); background: #000;
+}
+.video-portrait .video-cap { text-align: center; }
 
 .empty {
   color: var(--ink-2); font-size: 14px;
