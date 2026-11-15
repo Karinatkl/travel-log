@@ -1,38 +1,76 @@
 ---
 layout: default
 title: 世界地圖
-description: 將所有行程畫喺世界地圖 — 邊個國家、邊個城市去過，一睇就知。
+description: 3D 地球 —— 睇晒去過邊個國家、邊個城市。
 permalink: /map/
 leaflet: true
 ---
 
 <style>
-  #worldmap {
-    height: 72vh; min-height: 420px;
+  .map-shell { position: relative; }
+  #globe3d, #worldmap {
+    height: 72vh; min-height: 440px;
     border: 1px solid var(--line); border-radius: var(--radius);
-    background: var(--surface);
+    overflow: hidden; background: #0b1020;
   }
+  #worldmap { display: none; background: var(--surface); }
+
+  .map-tabs { display: inline-flex; gap: 6px; margin: 0 0 12px; }
+  .map-tabs button {
+    font: inherit; font-size: 13px; padding: 7px 14px; cursor: pointer;
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+    border-radius: 999px;
+  }
+  .map-tabs button[aria-pressed="true"] {
+    background: var(--ink); color: #fff; border-color: var(--ink);
+  }
+
   .map-legend { font-size: 12.5px; color: var(--dim); margin: 10px 0 0; }
-  .leaflet-popup-content { font-family: inherit; font-size: 13px; line-height: 1.6; }
   .map-legend .lg { display: inline-flex; align-items: center; gap: 6px; margin-right: 16px; }
   .map-legend .lg i { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
-  .tl-pin { background: transparent; border: 0; }
+
+  .leaflet-popup-content { font-family: inherit; font-size: 13px; line-height: 1.6; }
   .leaflet-popup-content a { color: var(--accent); font-weight: 600; }
+  .tl-pin { background: transparent; border: 0; }
+
+  .globe-label {
+    font-family: inherit; font-size: 12.5px; line-height: 1.5;
+    background: rgba(255,255,255,.96); color: #2b2a27;
+    padding: 8px 11px; border-radius: 8px; max-width: 240px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.35);
+  }
+  .globe-label b { font-weight: 700; }
+  .globe-label .dim2 { color: #8a8377; }
+  .globe-loading {
+    position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+    color: #9aa4b8; font-size: 13px; pointer-events: none;
+  }
 </style>
 
 <section class="page-head">
   <h1>去過邊</h1>
-  <p class="sub">所有行程嘅位置。撳個點就見行程名同日期，可以直接跳去詳情頁。</p>
+  <p class="sub">3D 地球 —— 拖住轉、碌落嚟放大縮細。每個點對應一個行程，撳個點就跳去詳情頁。</p>
 </section>
 
-<div id="worldmap"></div>
+<div class="map-tabs">
+  <button id="tab3d" aria-pressed="true">🌍 3D 地球</button>
+  <button id="tab2d" aria-pressed="false">🗺 平面地圖</button>
+</div>
+
+<div class="map-shell">
+  <div id="globe3d"></div>
+  <div id="worldmap"></div>
+  <p class="globe-loading" id="globeLoading">地球載入中…</p>
+</div>
+
 <p class="map-legend">
-  <span class="lg"><i style="background:#2563eb"></i>藍 pin＝同行（有人一齊去）</span>
-  <span class="lg"><i style="background:#7c3aed"></i>紫 pin＝自己去</span>
-  <span class="lg dim">底圖 © OpenStreetMap 貢獻者</span>
+  <span class="lg"><i style="background:#2563eb"></i>藍＝同行（有人一齊去）</span>
+  <span class="lg"><i style="background:#7c3aed"></i>紫＝自己去</span>
+  <span class="lg dim">地球貼圖 NASA Blue Marble · 平面圖 © OpenStreetMap</span>
 </p>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/globe.gl"></script>
 <script>
   var TRIPS = [
   {%- assign first = true -%}
@@ -62,18 +100,30 @@ leaflet: true
   {%- endfor -%}
   ];
 
-  var map = L.map("worldmap", { scrollWheelZoom: true, worldCopyJump: true });
+  var BLUE = "#2563eb", PURPLE = "#7c3aed";
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 18,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-  }).addTo(map);
+  // 把每個行程攤平成 pin 清單
+  var PINS = [];
+  TRIPS.forEach(function (t) {
+    var dateStr = t.d + (t.e && t.e !== t.d ? " – " + t.e : "");
+    if (t.pts && t.pts.length) {
+      t.pts.forEach(function (pt) {
+        PINS.push({ la: pt.la, lo: pt.lo, n: pt.n, t: t.t, u: t.u, d: dateStr, so: pt.so });
+      });
+    } else {
+      PINS.push({ la: t.lat, lo: t.lng, n: "", t: t.t, u: t.u, d: dateStr, so: t.so });
+    }
+  });
 
-  if (!TRIPS.length) {
-    map.setView([22.3, 114.2], 4);
-  } else {
-    var bounds = [];
-    var BLUE = "#2563eb", PURPLE = "#7c3aed";
+  // ───────── 2D 平面（Leaflet，lazy） ─────────
+  var map2d = null;
+  function init2D() {
+    if (map2d) { map2d.invalidateSize(); return; }
+    map2d = L.map("worldmap", { scrollWheelZoom: true, worldCopyJump: true });
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map2d);
 
     function pinFor(solo) {
       var c = solo ? PURPLE : BLUE;
@@ -87,29 +137,87 @@ leaflet: true
       });
     }
 
-    function popup(t, name) {
-      return '<strong>' + (name ? name + '｜' : '') + t.t + '</strong><br>' +
-        (t.d ? t.d + (t.e && t.e !== t.d ? " – " + t.e : "") + '<br>' : "") +
-        (t.s ? '<span style="color:#918a80">' + t.s + '</span><br>' : "") +
-        '<a href="' + t.u + '">睇行程 →</a>';
-    }
-
-    TRIPS.forEach(function (t) {
-      // 有 points 就每個基地一個點，冇就用單一 lat/lng
-      if (t.pts && t.pts.length) {
-        t.pts.forEach(function (pt) {
-          L.marker([pt.la, pt.lo], { icon: pinFor(pt.so) }).addTo(map).bindPopup(popup(t, pt.n));
-          bounds.push([pt.la, pt.lo]);
-        });
-      } else {
-        L.marker([t.lat, t.lng], { icon: pinFor(t.so) }).addTo(map).bindPopup(popup(t, ""));
-        bounds.push([t.lat, t.lng]);
-      }
+    var bounds = [];
+    PINS.forEach(function (p) {
+      L.marker([p.la, p.lo], { icon: pinFor(p.so) }).addTo(map2d).bindPopup(
+        "<strong>" + (p.n ? p.n + "｜" : "") + p.t + "</strong><br>" + p.d + "<br>" +
+        '<a href="' + p.u + '">睇行程 →</a>'
+      );
+      bounds.push([p.la, p.lo]);
     });
-    if (bounds.length === 1) {
-      map.setView(bounds[0], 12);
-    } else {
-      map.fitBounds(bounds, { padding: [40, 40] });
+    if (bounds.length === 1) map2d.setView(bounds[0], 11);
+    else if (bounds.length) map2d.fitBounds(bounds, { padding: [40, 40] });
+    else map2d.setView([20, 110], 3);
+  }
+
+  // ───────── 3D 地球（globe.gl） ─────────
+  var globe = null;
+  function init3D() {
+    if (globe) return true;
+    if (typeof Globe === "undefined") return false;
+    try {
+      globe = Globe()(document.getElementById("globe3d"))
+        .globeImageUrl("https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg")
+        .bumpImageUrl("https://unpkg.com/three-globe/example/img/earth-topology.png")
+        .backgroundColor("#0b1020")
+        .pointsData(PINS)
+        .pointLat("la").pointLng("lo")
+        .pointColor(function (p) { return p.so ? PURPLE : BLUE; })
+        .pointAltitude(0.025)
+        .pointRadius(0.55)
+        .pointLabel(function (p) {
+          return '<div class="globe-label"><b>' + (p.n ? p.n + "｜" : "") + p.t + '</b><br>' +
+                 '<span class="dim2">' + p.d + '</span><br>' +
+                 '<a href="' + p.u + '">睇行程 →</a></div>';
+        })
+        .onPointClick(function (p) { window.location.href = p.u; });
+
+      globe.pointOfView({ lat: 10, lng: 105, altitude: 2.4 }, 0);
+
+      // 自動旋轉（一拖就停）
+      var ctl = globe.controls();
+      ctl.autoRotate = true;
+      ctl.autoRotateSpeed = 0.35;
+      ctl.enableDamping = true;
+      ctl.dampingFactor = 0.15;
+      ctl.minDistance = 105;
+      ctl.maxDistance = 600;
+      document.getElementById("globe3d").addEventListener("pointerdown", function () { ctl.autoRotate = false; });
+
+      function resize() {
+        var el = document.getElementById("globe3d");
+        if (!el) return;
+        globe.width(el.clientWidth);
+        globe.height(el.clientHeight);
+      }
+      resize();
+      window.addEventListener("resize", resize);
+      document.getElementById("globeLoading").hidden = true;
+      return true;
+    } catch (e) {
+      globe = null;
+      return false;
     }
   }
+
+  // ───────── 切換 ─────────
+  var tab3d = document.getElementById("tab3d");
+  var tab2d = document.getElementById("tab2d");
+  var gEl = document.getElementById("globe3d");
+  var mEl = document.getElementById("worldmap");
+
+  function show3D() {
+    if (!init3D()) { show2D(); return; }
+    gEl.style.display = "block"; mEl.style.display = "none";
+    tab3d.setAttribute("aria-pressed", "true"); tab2d.setAttribute("aria-pressed", "false");
+  }
+  function show2D() {
+    gEl.style.display = "none"; mEl.style.display = "block";
+    tab3d.setAttribute("aria-pressed", "false"); tab2d.setAttribute("aria-pressed", "true");
+    init2D();
+  }
+  tab3d.addEventListener("click", show3D);
+  tab2d.addEventListener("click", show2D);
+
+  show3D();
 </script>
