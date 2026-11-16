@@ -6,6 +6,7 @@
   <title>{% if page.title %}{{ page.title }}｜{% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ page.description | default: site.description }}">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  {% if page.css %}<link rel="stylesheet" href="{{ page.css | relative_url }}">{% endif %}
   {% if page.leaflet %}<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">{% endif %}
 </head>
 <body>
@@ -13,6 +14,7 @@
     <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
     <nav>
       <a href="{{ '/' | relative_url }}">總表</a>
+      <a href="{{ '/calendar/' | relative_url }}">行事曆</a>
       <a href="{{ '/map/' | relative_url }}">地圖</a>
       <a href="https://github.com/{{ site.github_repo | default: 'Karinatkl/travel-log' }}" rel="noopener">GitHub</a>
     </nav>

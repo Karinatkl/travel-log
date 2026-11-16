@@ -1,0 +1,63 @@
+---
+layout: default
+title: 2026 行事曆
+description: 2026 年旅行行事曆 — 一個月一頁，一眼睇清邊個月出走。
+year: 2026
+css: /assets/css/calendar.css
+---
+
+<section class="cal-hero">
+  <div class="cal-hero-in">
+    <div class="cal-copy">
+      <div class="cal-eyebrow">TRAVEL LOG · {{ page.year }}</div>
+      <h1>{{ page.year }} 旅行行事曆</h1>
+      <p class="cal-sub">一個月一頁，一眼睇清邊個月出走。<br>行程同相由 <code>_data/trips.csv</code> 即時生成。</p>
+      <div class="cal-stats" id="calStats"></div>
+      <div class="cal-route" id="calRoute"></div>
+      <div class="cal-jump">
+        <a href="#m-09">跳到 9 月 →</a>
+        <a href="#m-10">10 月 →</a>
+        <a href="#m-11">11 月 →</a>
+      </div>
+    </div>
+    <div class="cal-stage">
+      <div class="cal-book" id="calBook">
+        <div class="cal-edges"></div>
+        <div class="cal-edge2"></div>
+        <div class="cal-front">
+          <div class="cal-spine"></div>
+          <div class="cal-gloss"></div>
+          <div class="cal-fc">
+            <div class="cal-eyebrow">TRAVEL LOG</div>
+            <div class="cal-yr">{{ page.year }}</div>
+            <div class="cal-cn">旅行日誌</div>
+            <div class="cal-rule"></div>
+            <div class="cal-who">{{ site.author }} · HONG KONG</div>
+            <div class="cal-gap"></div>
+            <div class="cal-minis" id="calMinis"></div>
+            <div class="cal-bookroute" id="calBookRoute"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cal-hint">↓ 向下捲，一個月一頁</div>
+</section>
+
+<div class="cal-rail" id="calRail">
+  <div class="cal-chips" id="calChips"></div>
+  <label class="cal-toggle"><input type="checkbox" id="onlyTrips"> 只睇有行程</label>
+</div>
+
+<div class="cal-months" id="calMonths"></div>
+
+<p class="cal-foot">資料由 <code>_data/trips.csv</code> 即時生成 · 加新行程會自動更新</p>
+
+<script>
+window.CAL = {
+  year: {{ page.year }},
+  base: {{ '/' | relative_url | jsonify }},
+  trips: {{ site.data.trips | jsonify }}
+};
+</script>
+<script src="{{ '/assets/js/calendar.js' | relative_url }}"></script>
