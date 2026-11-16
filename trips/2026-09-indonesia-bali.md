@@ -22,30 +22,42 @@ gallery:
     caption: 潛店別墅嘅泳池 —— Amed 住嘅地方，望出去係棕櫚同海。
   - file: 002-dive-shop-tanks.jpg
     caption: 潛店院子：氣樽排喺地下、wetsuit 掛住晾，落水前就喺樹下等。
-  - file: 003-amed-country-cart.jpg
+  - file: 003-amed-black-sand-sunset.jpg
+    caption: Amed 黑石灘日落：火山錐剪影，卵石灘行一行就聽到沙沙聲。
+  - file: 004-amed-country-cart.jpg
     caption: 喺 Amed 坐住鄉間小車穿過叢林，路邊係乾草同棕櫚。
-  - file: 004-ubud-ricefield-sunset.jpg
+  - file: 005-ubud-ricefield-sunset.jpg
     caption: 轉場 Ubud 第一晚：陽台望住稻田，日落打落嚟。
-  - file: 005-monkey-forest-entrance.jpg
+  - file: 006-monkey-forest-entrance.jpg
     caption: 聖猴森林入口 —— 石雕、猴群同 ENTRANCE 木牌。
-  - file: 006-atv-elephant-cave.jpg
+  - file: 007-atv-elephant-cave.jpg
     caption: ATV 駛出象鼻石洞，洞口長滿青苔。
-  - file: 007-atv-mud-ride.jpg
+  - file: 008-atv-mud-ride.jpg
     caption: ATV 涉水穿林，泥水濺到成身。
-  - file: 008-kecak-fire-dance.jpg
+  - file: 009-ubud-stone-path.jpg
+    caption: Ubud 嘅石板小徑，兩邊係花同高樹。
+  - file: 010-kecak-fire-dance.jpg
     caption: Kecak 火舞：男聲合唱圍住火堆，喺神廟前做到成晚。
-  - file: 009-ubud-temple-gate.jpg
+  - file: 011-ubud-temple-gate.jpg
     caption: Ubud 神廟：紅磚牆、圍住沙龍嘅石像、黑色神傘。
-  - file: 010-surf-batu-bolong.jpg
+  - file: 012-surf-batu-bolong.jpg
     caption: Batu Bolong 落浪 —— 呢一站嘅目標就係進階衝浪。
-  - file: 011-canggu-beach.jpg
+  - file: 013-canggu-beach.jpg
     caption: Canggu 沙灘：曬太陽、游水、等下一個浪。
-  - file: 012-bynd-fitness-bamboo.jpg
+  - file: 014-reformer-pilates.jpg
+    caption: Reformer Pilates 堂 —— 一班人排住器械做，動作慢慢嚟。
+  - file: 015-antigravity-yoga.jpg
+    caption: 空中瑜伽（AntiGravity）：吊床掛滿成個房，教練逐個調高度。
+  - file: 016-bynd-fitness-bamboo.jpg
     caption: BYND BALI Fitness Club —— 竹林穹頂，貼住稻田做運動。
-  - file: 013-wave-house-surf-van.jpg
+  - file: 017-wave-house-surf-van.jpg
     caption: Wave House 嘅板車，板疊上車頂，準備出車落水。
-  - file: 014-yoga-shala.jpg
+  - file: 018-canggu-sunset.jpg
+    caption: Canggu 黑沙灘日落：狗同行人一齊喺水邊。
+  - file: 019-yoga-shala.jpg
     caption: Yoga shala：木地板、面向叢林，一堂靜落嚟。
+  - file: 020-sound-healing.jpg
+    caption: 音療（sound healing）：銅鑼同頌缽圍住中間，成個房得返聲。
 ---
 
 > 25 日三站旅居：Amed 落水 fun dive、Ubud 住足一週、Canggu 滑浪同課程，最後 10/15 新加坡快閃一日。邊做網課邊旅居，唔係觀光團。
