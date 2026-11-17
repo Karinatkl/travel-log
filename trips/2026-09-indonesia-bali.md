@@ -171,7 +171,7 @@ gallery:
 | 10/2 – 10/4 | **Wave House Surf Camp** | Canggu，衝浪營，帶錄影覆盤教學 |
 | 10/4 – 10/9 | **Sekala CoLiving** | Canggu，數碼遊民共居，瑜伽／普拉提／Animal Flow 課堂都喺附近 |
 | 10/9 – 10/14 | **Cove Kavana** | Canggu Berawa 海邊，衝浪、瑜伽、普拉提、音療冥想 |
-| 10/14 – 10/15 | **Harris Hotel Tuban** | 機場周邊，過夜等凌晨早班機 |
+| 10/14 – 10/15 | **Harris Hotel Tuban** | 機場附近住一晚，趕第二朝 07:15 早班機 |
 
 ## 6. 相片
 
@@ -179,7 +179,7 @@ gallery:
 
 ## 7. 影片
 
-{% include video.html url="https://www.instagram.com/reel/Deyzp3TzR_utsVi1hVZXAdWdA8CDXGiOuW4XI40/" title="峇里島 2026 三站旅居 — Instagram Reel" %}
+{% include video.html url="https://youtu.be/lR3WJvrRDEg" title="峇里島 2026 三站旅居 — YouTube" %}
 
 ## 8. 花費
 
