@@ -102,6 +102,39 @@ leaflet: true
     }
   });
 
+  // ── 太近嘅 pin 自動錯位散開（珠江三角洲唔會疊成一粒）──
+  (function decluster() {
+    var D = 0.45, done = {}, groups = [];
+    for (var i = 0; i < PINS.length; i++) {
+      if (done[i]) continue;
+      var stack = [i], grp = [];
+      done[i] = 1;
+      while (stack.length) {
+        var k = stack.pop();
+        grp.push(PINS[k]);
+        for (var j = 0; j < PINS.length; j++) {
+          if (done[j]) continue;
+          if (Math.abs(PINS[j].la - PINS[i].la) < D && Math.abs(PINS[j].lo - PINS[i].lo) < D) {
+            done[j] = 1; stack.push(j);
+          }
+        }
+      }
+      groups.push(grp);
+    }
+    groups.forEach(function (g) {
+      if (g.length < 2) return;
+      var cLa = 0, cLo = 0;
+      g.forEach(function (p) { cLa += p.la; cLo += p.lo; });
+      cLa /= g.length; cLo /= g.length;
+      var R = 0.11;
+      g.forEach(function (p, n) {
+        var a = (2 * Math.PI * n) / g.length - Math.PI / 2;
+        p.la = cLa + R * Math.sin(a);
+        p.lo = cLo + (R * Math.cos(a)) / Math.cos(cLa * Math.PI / 180);
+      });
+    });
+  })();
+
   var map2d = L.map("worldmap", { scrollWheelZoom: true, worldCopyJump: true });
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
@@ -128,9 +161,16 @@ leaflet: true
     );
     bounds.push([p.la, p.lo]);
   });
-  if (bounds.length === 1) map2d.setView(bounds[0], 11);
-  else if (bounds.length) map2d.fitBounds(bounds, { padding: [48, 48] });
-  else map2d.setView([20, 110], 3);
+  var hash = (location.hash || "").replace("#", "").split(",");
+  if (hash.length === 3 && !isNaN(+hash[0]) && !isNaN(+hash[1]) && !isNaN(+hash[2])) {
+    map2d.setView([+hash[0], +hash[1]], +hash[2]);
+  } else if (bounds.length === 1) {
+    map2d.setView(bounds[0], 11);
+  } else if (bounds.length) {
+    map2d.fitBounds(bounds, { padding: [48, 48] });
+  } else {
+    map2d.setView([20, 110], 3);
+  }
 
   setTimeout(function () { map2d.invalidateSize(); }, 200);
 </script>
