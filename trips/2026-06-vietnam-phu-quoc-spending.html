@@ -1,0 +1,104 @@
+---
+layout: spending
+trip_id: 2026-06-vietnam-phu-quoc
+title: 2026.0629-0703 富國島｜花費
+trip_url: /trips/2026-06-vietnam-phu-quoc/
+permalink: /trips/2026-06-vietnam-phu-quoc/spending/
+locked: true
+---
+
+<div id="lockbox" class="lockbox">
+  <div class="lock-icon">🔒</div>
+  <p class="lock-title">呢頁係加密嘅</p>
+  <p class="lock-desc">花費內容以 AES-256 加密存放，冇密碼嘅人只會見到亂碼。輸入密碼解鎖。</p>
+  <div class="lock-row">
+    <input type="password" id="pw" placeholder="密碼" autocomplete="current-password" spellcheck="false">
+    <button id="unlock">解鎖</button>
+  </div>
+  <p id="err" class="lock-err"></p>
+</div>
+
+<div id="out" class="prose" hidden></div>
+
+<p id="lockagain" class="lock-again" hidden><button id="relock" class="btn-ghost">🔒 鎖返</button></p>
+
+<script>
+(function () {
+  // salt / iv 跟密文一齊放喺同一個 JSON，換密碼時只需換一個檔，
+  // 就算瀏覽器 cache 住舊版頁面都唔會撞版本。
+  var ITER = 100000;
+  var SRC = "{{ '/assets/enc/2026-06-vietnam-phu-quoc-spending.json' | relative_url }}";
+
+  var box = document.getElementById("lockbox");
+  var out = document.getElementById("out");
+  var err = document.getElementById("err");
+  var pw = document.getElementById("pw");
+  var btn = document.getElementById("unlock");
+  var again = document.getElementById("lockagain");
+
+  function hex(s) {
+    var a = new Uint8Array(s.length / 2);
+    for (var i = 0; i < s.length; i += 2) a[i / 2] = parseInt(s.substr(i, 2), 16);
+    return a;
+  }
+
+  function b64(b) {
+    var bin = atob(b.replace(/\s/g, ""));
+    var a = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) a[i] = bin.charCodeAt(i);
+    return a;
+  }
+
+  var PACK = null;
+
+  async function loadPack() {
+    if (PACK) return PACK;
+    PACK = await (await fetch(SRC, { cache: "no-store" })).json();
+    return PACK;
+  }
+
+  async function decrypt(pass) {
+    var pack = await loadPack();
+    var base = await crypto.subtle.importKey(
+      "raw", new TextEncoder().encode(pass), "PBKDF2", false, ["deriveKey"]
+    );
+    var key = await crypto.subtle.deriveKey(
+      { name: "PBKDF2", salt: hex(pack.salt), iterations: ITER, hash: "SHA-256" },
+      base, { name: "AES-CBC", length: 256 }, false, ["decrypt"]
+    );
+    var plain = await crypto.subtle.decrypt({ name: "AES-CBC", iv: hex(pack.iv) }, key, b64(pack.ct));
+    return new TextDecoder().decode(plain);
+  }
+
+  async function run() {
+    err.textContent = "";
+    var p = pw.value;
+    if (!p) { err.textContent = "未輸入密碼"; return; }
+    btn.disabled = true; btn.textContent = "解鎖中…";
+    try {
+      out.innerHTML = await decrypt(p);
+      box.hidden = true; out.hidden = false; again.hidden = false;
+      try { sessionStorage.setItem("tl_pw", p); } catch (e) {}
+    } catch (e) {
+      err.textContent = (typeof crypto === "undefined" || !crypto.subtle)
+        ? "呢個瀏覽器唔支援解密，換 Chrome／Safari 再試。"
+        : "密碼唔啱，再試一次。";
+      btn.disabled = false; btn.textContent = "解鎖";
+    }
+  }
+
+  btn.addEventListener("click", run);
+  pw.addEventListener("keydown", function (e) { if (e.key === "Enter") run(); });
+  document.getElementById("relock").addEventListener("click", function () {
+    try { sessionStorage.removeItem("tl_pw"); } catch (e) {}
+    out.innerHTML = ""; out.hidden = true; again.hidden = true;
+    box.hidden = false; btn.disabled = false; btn.textContent = "解鎖"; pw.value = "";
+  });
+
+  // 同一個 session 內刷新唔使再打密碼
+  try {
+    var saved = sessionStorage.getItem("tl_pw");
+    if (saved) { pw.value = saved; run(); }
+  } catch (e) {}
+})();
+</script>

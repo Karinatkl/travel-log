@@ -10,6 +10,7 @@ city: Phu Quoc
 trip_type: LEISURE
 companions: WITH:Libby
 permalink: /trips/2026-06-vietnam-phu-quoc/
+spending: /trips/2026-06-vietnam-phu-quoc/spending/
 lat: 10.2270
 lng: 103.9640
 points:
@@ -104,4 +105,6 @@ points:
 
 ## 8. 花費
 
-（花費頁未開 —— 你份日誌已有分類同 VND→HKD 換算，等你 confirm 幾點我就開加密花費頁）
+👉 所有金額、分類、逐項明細同二人分帳，喺獨立一頁：
+
+**[花費明細 →]({{ '/trips/2026-06-vietnam-phu-quoc/spending/' | relative_url }})**
