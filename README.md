@@ -9,6 +9,7 @@ Karina 嘅行程總表。**呢個表由 `_data/trips.csv` 自動生成，唔准�
 | **2026.1111-1113 深圳（南山／福田）** | 11-11 – 11-13 | 2 | Shenzhen | LEISURE | `COMPLETED` | 2508.7 | 8／0 | [詳情](trips/2026-11-shenzhen.md) |
 | **2026.0920-1015 印尼峇里（Amed／Ubud／Canggu）** | 09-20 – 10-15 | 25 | Bali / Amed / Ubud / Canggu | DIGITAL_NOMAD | `COMPLETED` | — | 20／1 | [詳情](trips/2026-09-indonesia-bali.md) |
 | **2026.0903-0908 韓國（首爾／安養）** | 09-03 – 09-08 | 5 | Seoul / Anyang | SPORT | `COMPLETED` | 4812.39 | 20／1 | [詳情](trips/2026-09-korea.md) |
+| **20260810-14 深圳西涌** | 08-10 – 08-14 | 4 | Shenzhen / Xichong | SPORT | `COMPLETED` | 5874 | 20／1 | [詳情](trips/2026-08-shenzhen-xichong.md) |
 
 ---
 
