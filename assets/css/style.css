@@ -327,6 +327,7 @@ table .day-tag, .prose td .day-tag { white-space: nowrap; }
 .prose h3 .day-tag { margin-left: 8px; font-size: 11px; }
 
 /* ── 相簿：三欄（電腦）／幻燈片（手機）──────────── */
+.gal-hint { display: none; }
 .gallery.gallery-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
@@ -346,9 +347,13 @@ table .day-tag, .prose td .day-tag { white-space: nowrap; }
   }
   .gallery.gallery-3::-webkit-scrollbar { display: none; }
   .gallery.gallery-3 .shot {
-    flex: 0 0 88%;
+    flex: 0 0 82%;
     scroll-snap-align: center;
   }
   .gallery.gallery-3 .shot a { aspect-ratio: 4 / 3; }
   .gallery.gallery-3 .shot figcaption { font-size: 12px; }
+  .gal-hint {
+    display: block; text-align: center;
+    font-size: 12px; color: var(--dim); margin: 8px 0 0;
+  }
 }

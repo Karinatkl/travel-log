@@ -10,6 +10,7 @@
   </figure>
   {% endfor %}
 </div>
+{% if include.cols %}<p class="gal-hint"><span class="gal-idx">1</span> / {{ page.gallery.size }}　左右掃 →</p>{% endif %}
 {% else %}
 {%- assign files = site.static_files | where_exp: "f", "f.path contains folder" -%}
 {%- assign shots = files | where_exp: "f", "f.name != 'cover.jpg'" | sort: "path" -%}
@@ -25,4 +26,22 @@
 {% else %}
 <p class="empty">仲未有相。放入 <code>photos/{{ include.trip_id }}/</code>，命名 <code>001-短描述.jpg</code>。</p>
 {% endif %}
+{% endif %}
+{% if include.cols %}
+<script>
+(function () {
+  var g = document.querySelector('.gallery.gallery-{{ include.cols }}');
+  var idx = document.querySelector('.gal-idx');
+  if (!g || !idx) return;
+  var t;
+  g.addEventListener('scroll', function () {
+    clearTimeout(t);
+    t = setTimeout(function () {
+      var w = g.firstElementChild.getBoundingClientRect().width + 10;
+      var i = Math.round(g.scrollLeft / w) + 1;
+      idx.textContent = Math.min(i, g.children.length);
+    }, 60);
+  }, { passive: true });
+})();
+</script>
 {% endif %}
