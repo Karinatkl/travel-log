@@ -323,4 +323,5 @@ code {
   border-radius: 999px; border: 1px solid; vertical-align: middle; font-weight: 600; }
 .day-tag.with { color: #2563eb; border-color: rgba(37,99,235,.5); background: rgba(37,99,235,.08); }
 .day-tag.solo { color: #7c3aed; border-color: rgba(124,58,237,.5); background: rgba(124,58,237,.08); }
+table .day-tag, .prose td .day-tag { white-space: nowrap; }
 .prose h3 .day-tag { margin-left: 8px; font-size: 11px; }

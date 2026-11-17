@@ -87,11 +87,11 @@ gallery:
 |---|---|---|---|---|
 | **Amed** | 9/20 – 9/27 | 潛店別墅 | <span class="day-tag with">同 Fai</span> | Fun dive：9/22 兩潛體驗、9/25 Euro Five Star 兩潛；其間上網課 |
 | **Ubud** | 9/27 – 10/2 | Bisma Jaya Bungalow | <span class="day-tag solo">自己一個</span> | 聖猴森林、Pison、髒鴨餐、ATV（Cretya Sunset）、Campuhan Ridge、10/1 Mount Batur 日出＋Kecak、10/2 銀飾製作 |
-<span class="day-tag solo">自己一個</span> | 衝浪營，有錄影覆盤教學 |
-<span class="day-tag solo">自己一個</span> | 滑浪、瑜伽、普拉提、Animal Flow、市集；網課主力期 |
-<span class="day-tag solo">自己一個</span> | 衝浪、音療、Spa；網課 |
+| **Canggu（衝浪營）** | 10/2 – 10/4 | Wave House Surf Camp | <span class="day-tag solo">自己一個</span> | 衝浪營，有錄影覆盤教學 |
+| **Canggu（Sekala）** | 10/4 – 10/9 | Sekala CoLiving | <span class="day-tag solo">自己一個</span> | 滑浪、瑜伽、普拉提、Animal Flow、市集；網課主力期 |
+| **Canggu（Berawa）** | 10/9 – 10/14 | Cove Kavana | <span class="day-tag solo">自己一個</span> | 衝浪、音療、Spa；網課 |
 | **機場附近住一晚** | 10/14 – 10/15 | Harris Hotel Tuban | <span class="day-tag solo">自己一個</span> | 住機場附近，趕 10/15 07:15 早班機 |
-| **新加坡快閃** | 10/15 | — | 07:15 DPS 飛新加坡，免費市區遊（魚尾獅）、肉骨茶、同 Stella 飲咖啡，19:00 飛返港 |
+| **新加坡快閃** | 10/15 | — | <span class="day-tag solo">自己一個</span> | 07:15 DPS 飛新加坡，免費市區遊（魚尾獅）、肉骨茶、同 Stella 飲咖啡，19:00 飛返港 |
 
 ## 3. 逐日誌
 
