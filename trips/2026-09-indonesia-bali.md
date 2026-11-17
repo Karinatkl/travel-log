@@ -83,27 +83,31 @@ gallery:
 
 ## 2. 行程總覽
 
-| 站 | 日期 | 住邊 | 主要做咩 |
-|---|---|---|---|
-| **Amed** | 9/21 – 9/27 | 潛店別墅 | Fun dive：9/22 兩潛體驗、9/25 Euro Five Star 兩潛；其間上網課 |
-| **Ubud** | 9/27 – 10/2 | Bisma Jaya Bungalow | 聖猴森林、Pison、髒鴨餐、ATV（Cretya Sunset）、Campuhan Ridge、10/1 Mount Batur 日出＋Kecak、10/2 銀飾製作 |
-| **Canggu（衝浪營）** | 10/2 – 10/4 | Wave House Surf Camp | 衝浪營，有錄影覆盤教學 |
-| **Canggu（Sekala）** | 10/4 – 10/9 | Sekala CoLiving | 滑浪、瑜伽、普拉提、Animal Flow、市集；網課主力期 |
-| **Canggu（Berawa）** | 10/9 – 10/14 | Cove Kavana | 衝浪、音療、Spa；網課 |
-| **機場過夜** | 10/14 – 10/15 | Harris Hotel Tuban | 趕 10/15 07:15 早班機 |
+| 站 | 日期 | 住邊 | 同行 | 主要做咩 |
+|---|---|---|---|---|
+| **Amed** | 9/20 – 9/27 | 潛店別墅 | <span class="day-tag with">同 Fai</span> | Fun dive：9/22 兩潛體驗、9/25 Euro Five Star 兩潛；其間上網課 |
+| **Ubud** | 9/27 – 10/2 | Bisma Jaya Bungalow | <span class="day-tag solo">自己一個</span> | 聖猴森林、Pison、髒鴨餐、ATV（Cretya Sunset）、Campuhan Ridge、10/1 Mount Batur 日出＋Kecak、10/2 銀飾製作 |
+<span class="day-tag solo">自己一個</span> | 衝浪營，有錄影覆盤教學 |
+<span class="day-tag solo">自己一個</span> | 滑浪、瑜伽、普拉提、Animal Flow、市集；網課主力期 |
+<span class="day-tag solo">自己一個</span> | 衝浪、音療、Spa；網課 |
+| **機場附近住一晚** | 10/14 – 10/15 | Harris Hotel Tuban | <span class="day-tag solo">自己一個</span> | 住機場附近，趕 10/15 07:15 早班機 |
 | **新加坡快閃** | 10/15 | — | 07:15 DPS 飛新加坡，免費市區遊（魚尾獅）、肉骨茶、同 Stella 飲咖啡，19:00 飛返港 |
 
 ## 3. 逐日誌
 
-### Amed｜9 月 21–27 日
+<span class="day-tag with">同 Fai</span> <span class="day-tag solo">自己一個</span> 　藍色＝同 Fai 一齊，紫色＝之後自己一個。
 
-9/20 夜晚由元朗搭 Uber 去深圳灣過關，再轉車去機場，經吉隆坡轉機。9/21 抵達 DPS，包車直入 Amed，途中辦 SIM 卡。
+### Amed｜9 月 20–27 日 <span class="day-tag with">同 Fai</span>
+
+**9/20（Day 1）**夜晚由元朗搭 Uber 去深圳灣過關，再轉車去機場，經吉隆坡轉機 —— 呢晚已經算行程第一日。
+
+**9/21（Day 2 · 峇里第一日）** 抵達 DPS，包車直入 Amed，途中辦 SIM 卡。
 
 今次唔係考證，係 fun dive —— 兩次下水、兩間潛店，純粹落水玩。9/22 朝早 07:55 離開酒店去潛店，做兩潛體驗。之後幾日就係潛水＋網課交錯：9/23 兩節課（16:30–18:30、20:30–21:30）、9/24 去 Alala Spa、9/25 08:00 集合再落兩潛（Euro Five Star）、9/26 喺別墅上堂。
 
 9/27 上午離開 Amed，同 Fai 食完午餐，Fai 去機場返港，自己搬去 Ubud。
 
-### Ubud｜9 月 27 日 – 10 月 2 日
+### Ubud｜9 月 27 日 – 10 月 2 日 <span class="day-tag solo">自己一個</span>
 
 住 Bisma Jaya Bungalow（Jalan Bisma，成條街都係 cafe，行得去猴林、烏布皇宮、烏布市場）。
 
@@ -117,7 +121,7 @@ gallery:
 
 10/2 12:00 去 Jl. Sugriwa 做銀飾製作，15:25 Anomali Coffee，17:15 腿部按摩，夜晚 Moon By Sun。當晚搬去 Canggu。
 
-### Canggu｜10 月 2 日 – 10 月 14 日
+### Canggu｜10 月 2 日 – 10 月 14 日 <span class="day-tag solo">自己一個</span>
 
 10/2 晚入住 **Wave House Surf Camp**，衝浪營模式，每節都有錄影覆盤。
 
@@ -129,7 +133,7 @@ gallery:
 
 10/7 12:00 Solar Gravity 團體課，加一節頸部拉伸；午餐 Cafe NOURISH；19:00 Hip Hop Femme；夜晚 GoFood 叫 Obelixx 豬肋骨；中間仲有兩節 tutorial class 同一個線上會議。
 
-10/8 11:00 Animal Flow Beginner，之後去市集買手作同布料；17:00 Yoga；19:00 睇日落；夜晚晚餐包喺住宿。
+10/8 11:00 Animal Flow Beginner，之後去市集買手鍊同衣服；17:00 Yoga；19:00 睇日落；夜晚晚餐包喺住宿。
 
 10/9 05:43 就出動去 Wave House，Baby Reef 滑浪四小時；13:45 做 Spa；16:00 轉酒店搬去 **Cove Kavana**（Berawa 海邊）；黃昏 Beach Sunset，夜晚 Hippie Fish。
 
@@ -143,9 +147,9 @@ gallery:
 
 10/14 08:00–12:00 退房，13:00 午餐，14:00 搭 Grab（約一個鐘）搬去機場邊 Harris Hotel Tuban，15:30–20:30 連環 tutorial class，夜晚晚餐。
 
-### 機場過夜｜10 月 14 日
+### 機場附近住一晚｜10 月 14–15 日
 
-住 Harris Hotel Tuban，貪近機場，第二朝唔使趕車。
+住 Harris Hotel Tuban —— 唔係機場入面過夜，係機場附近一間酒店，貪佢近客運大樓，第二朝 07:15 機都唔使趕車。
 
 ### 新加坡快閃｜10 月 15 日
 

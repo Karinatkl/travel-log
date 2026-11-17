@@ -317,3 +317,10 @@ code {
   .thumb { width: 56px; height: 42px; }
   .trip-cell { gap: 9px; }
 }
+
+/* 同行標記：藍＝同朋友，紫＝自己一個 */
+.day-tag { display: inline-block; font-size: 11px; letter-spacing: .1em; padding: 2px 9px;
+  border-radius: 999px; border: 1px solid; vertical-align: middle; font-weight: 600; }
+.day-tag.with { color: #2563eb; border-color: rgba(37,99,235,.5); background: rgba(37,99,235,.08); }
+.day-tag.solo { color: #7c3aed; border-color: rgba(124,58,237,.5); background: rgba(124,58,237,.08); }
+.prose h3 .day-tag { margin-left: 8px; font-size: 11px; }
