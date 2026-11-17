@@ -11,6 +11,7 @@ city: Shenzhen / Xichong
 trip_type: SPORT
 companions: WITH:朋友（部分時段）／衝浪教練 1v1
 permalink: /trips/2026-08-shenzhen-xichong/
+spending: /trips/2026-08-shenzhen-xichong/spending/
 lat: 22.4700            # 西涌沙灘一帶
 lng: 114.5600
 points:
@@ -150,4 +151,4 @@ gallery:
 
 ## 8. 花費
 
-今次冇開獨立花費頁 —— 費用分散喺支付寶／微信／現金，加上課程係預付定金，冇逐項記帳。要補嘅話再開。
+**[花費明細（🔒 要密碼）→]({{ '/trips/2026-08-shenzhen-xichong/spending/' | relative_url }})**
