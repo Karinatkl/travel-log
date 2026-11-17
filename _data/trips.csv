@@ -9,4 +9,4 @@ trip_id,title_zh,title_en,trip_type,country,city,start_date,end_date,nights,stat
 2026-03-guangzhou,2026.0322-0329 廣州,2026.0322-0329 Guangzhou,LEISURE,China,Guangzhou,2026-03-22,2026-03-29,7,COMPLETED,,,,,,,0,0,,,2026-11-17
 2026-04-shenzhen-shekou,2026.0406-0407 深圳蛇口,2026.0406-0407 Shenzhen (Shekou),SPORT,China,Shenzhen / Shekou,2026-04-06,2026-04-07,1,COMPLETED,WITH:Christy / Hayden 等 7 人,,,,,,0,0,,,2026-11-17
 2026-04-taiwan-ymq,2026.0408-0415 台灣 ymq,2026.0408-0415 Taiwan (YMQ),SPORT,Taiwan,Taipei,2026-04-08,2026-04-15,7,COMPLETED,WITH:Fai / Libby / Chicken / TM 等 5 人,,,,,,0,0,,trips/2026-04-taiwan-ymq.md,2026-11-17
-2026-06-vietnam-phu-quoc,2026.0629-0703 富國島,2026.0629-0703 Vietnam (Phu Quoc),LEISURE,Vietnam,Phu Quoc,2026-06-29,2026-07-03,4,COMPLETED,WITH:Libby,,,,,,0,0,,,2026-11-17
+2026-06-vietnam-phu-quoc,2026.0629-0703 富國島,2026.0629-0703 Vietnam (Phu Quoc),LEISURE,Vietnam,Phu Quoc,2026-06-29,2026-07-03,4,COMPLETED,WITH:Libby,,,,,6043,0,0,,trips/2026-06-vietnam-phu-quoc.md,2026-11-17
