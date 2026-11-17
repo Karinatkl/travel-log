@@ -11,7 +11,7 @@ Karina 嘅行程總表。**呢個表由 `_data/trips.csv` 自動生成，唔准�
 | **2026.0903-0908 韓國（首爾／安養）** | 09-03 – 09-08 | 5 | Seoul / Anyang | SPORT | `COMPLETED` | 4812.39 | 20／1 | [詳情](trips/2026-09-korea.md) |
 | **20260810-14 深圳西涌** | 08-10 – 08-14 | 4 | Shenzhen / Xichong | SPORT | `COMPLETED` | 5874 | 20／1 | [詳情](trips/2026-08-shenzhen-xichong.md) |
 | **2026.0629-0703 富國島** | 06-29 – 07-03 | 4 | Phu Quoc | LEISURE | `COMPLETED` | — | 0／0 | [詳情](trips/2026-06-vietnam-phu-quoc.md) |
-| **2026.0408-0415 台灣清晨盃** | 04-08 – 04-15 | 7 | Taipei | SPORT | `COMPLETED` | — | 0／0 | [詳情](trips/2026-04-taiwan-qingchen-cup.md) |
+| **2026.0408-0415 台灣 ymq** | 04-08 – 04-15 | 7 | Taipei | SPORT | `COMPLETED` | — | 0／0 | [詳情](trips/2026-04-taiwan-ymq.md) |
 | **2026.0406-0407 深圳蛇口** | 04-06 – 04-07 | 1 | Shenzhen / Shekou | SPORT | `COMPLETED` | — | 0／0 | [詳情](trips/2026-04-shenzhen-shekou.md) |
 | **2026.0322-0329 廣州** | 03-22 – 03-29 | 7 | Guangzhou | LEISURE | `COMPLETED` | — | 0／0 | [詳情](trips/2026-03-guangzhou.md) |
 | **2026.0221-0222 珠海** | 02-21 – 02-22 | 1 | Zhuhai | LEISURE | `COMPLETED` | — | 0／0 | [詳情](trips/2026-02-zhuhai.md) |
