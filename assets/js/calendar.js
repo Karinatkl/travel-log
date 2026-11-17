@@ -23,7 +23,10 @@
     name = name.split("（")[0].split("(")[0].trim();
     return name || t.city || t.country || t.trip_id;
   }
-  function link(t) { return BASE + "/" + String(t.path || "").replace(/^\/|\/$/g, "") + "/"; }
+  function link(t) {
+    var p = String(t.path || "").replace(/^\/|\/$/g, "").replace(/\.md$/i, "");
+    return BASE + "/" + p + "/";
+  }
   function cover(t) { return BASE + "/photos/" + t.id + "/cover.jpg"; }
 
   /* ── 準備資料 ── */
