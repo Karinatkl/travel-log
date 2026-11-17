@@ -98,6 +98,28 @@ leaflet: true
       {%- assign first = false -%}
     {%- endif -%}
   {%- endfor -%}
+  {%- assign covered = site.pages | where: "layout", "trip" | map: "url" -%}
+  {%- for t in site.data.trips -%}
+    {%- assign g = site.data.geo[t.trip_id] -%}
+    {%- assign turl = '/trips/' | append: t.trip_id | append: '/' -%}
+    {%- if g -%}
+    {%- unless covered contains turl -%}
+      {%- unless first %},{% endunless -%}
+      {
+        "lat": {{ g.lat }},
+        "lng": {{ g.lng }},
+        "t": {{ t.title_zh | jsonify }},
+        "u": "",
+        "s": {{ t.status | default: "" | jsonify }},
+        "d": {{ t.start_date | default: "" | jsonify }},
+        "e": {{ t.end_date | default: "" | jsonify }},
+        "so": false,
+        "pts": []
+      }
+      {%- assign first = false -%}
+    {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
   ];
 
   var BLUE = "#2563eb", PURPLE = "#7c3aed";
@@ -141,7 +163,7 @@ leaflet: true
     PINS.forEach(function (p) {
       L.marker([p.la, p.lo], { icon: pinFor(p.so) }).addTo(map2d).bindPopup(
         "<strong>" + (p.n ? p.n + "｜" : "") + p.t + "</strong><br>" + p.d + "<br>" +
-        '<a href="' + p.u + '">睇行程 →</a>'
+        (p.u ? '<a href="' + p.u + '">睇行程 →</a>' : '<span style="color:#8a8377">詳情待補</span>')
       );
       bounds.push([p.la, p.lo]);
     });
@@ -168,9 +190,9 @@ leaflet: true
         .pointLabel(function (p) {
           return '<div class="globe-label"><b>' + (p.n ? p.n + "｜" : "") + p.t + '</b><br>' +
                  '<span class="dim2">' + p.d + '</span><br>' +
-                 '<a href="' + p.u + '">睇行程 →</a></div>';
+                 (p.u ? '<a href="' + p.u + '">睇行程 →</a>' : '<span class="dim2">詳情待補</span>') + '</div>';
         })
-        .onPointClick(function (p) { window.location.href = p.u; });
+        .onPointClick(function (p) { if (p.u) window.location.href = p.u; });
 
       globe.pointOfView({ lat: 10, lng: 105, altitude: 2.4 }, 0);
 

@@ -1,0 +1,8 @@
+# 未寫詳情頁嘅行程，喺地圖用呢個檔補座標。有 md front matter（lat/lng）嘅 trip 唔需要喺度出現。
+2026-01-macau: { lat: 22.1987, lng: 113.5439 }
+2026-01-japan-sendai-tokyo: { lat: 38.2682, lng: 140.8694 }
+2026-02-zhuhai: { lat: 22.2707, lng: 113.5767 }
+2026-03-guangzhou: { lat: 23.1291, lng: 113.2644 }
+2026-04-shenzhen-shekou: { lat: 22.4820, lng: 113.9170 }
+2026-04-taiwan-qingchen-cup: { lat: 25.0330, lng: 121.5654 }
+2026-06-vietnam-phu-quoc: { lat: 10.2270, lng: 103.9640 }
