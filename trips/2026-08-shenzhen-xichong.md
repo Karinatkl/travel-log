@@ -143,7 +143,7 @@ gallery:
 
 ## 6. 相片
 
-{% include gallery.html trip_id="2026-08-shenzhen-xichong" %}
+{% include gallery.html trip_id="2026-08-shenzhen-xichong" cols="3" %}
 
 ## 7. 影片
 

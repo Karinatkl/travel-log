@@ -325,3 +325,30 @@ code {
 .day-tag.solo { color: #7c3aed; border-color: rgba(124,58,237,.5); background: rgba(124,58,237,.08); }
 table .day-tag, .prose td .day-tag { white-space: nowrap; }
 .prose h3 .day-tag { margin-left: 8px; font-size: 11px; }
+
+/* ── 相簿：三欄（電腦）／幻燈片（手機）──────────── */
+.gallery.gallery-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.gallery.gallery-3 .shot a { aspect-ratio: 4 / 3; }
+.gallery.gallery-3 .shot figcaption { font-size: 11.5px; line-height: 1.45; }
+
+@media (max-width: 767px) {
+  .gallery.gallery-3 {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 2px 0 6px;
+  }
+  .gallery.gallery-3::-webkit-scrollbar { display: none; }
+  .gallery.gallery-3 .shot {
+    flex: 0 0 88%;
+    scroll-snap-align: center;
+  }
+  .gallery.gallery-3 .shot a { aspect-ratio: 4 / 3; }
+  .gallery.gallery-3 .shot figcaption { font-size: 12px; }
+}
