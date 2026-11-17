@@ -104,7 +104,7 @@ gallery:
 
 ## 6. 相片
 
-{% include gallery.html trip_id="2026-11-shenzhen" %}
+{% include gallery.html trip_id="2026-11-shenzhen" cols="3" %}
 
 ## 7. 影片
 

@@ -175,7 +175,7 @@ gallery:
 
 ## 6. 相片
 
-{% include gallery.html trip_id="2026-09-indonesia-bali" %}
+{% include gallery.html trip_id="2026-09-indonesia-bali" cols="3" %}
 
 ## 7. 影片
 
