@@ -109,6 +109,9 @@ code {
 
 .trip-link { font-weight: 600; color: var(--ink); }
 .trip-link:hover { color: var(--accent); }
+.trip-link.is-off { color: var(--ink); cursor: default; }
+.trip-link.is-off:hover { color: var(--ink); }
+.cal-off { font-weight: 600; color: var(--ink); }
 .en { display: block; font-size: 12px; color: var(--dim); font-weight: 400; margin-top: 2px; }
 .dim { color: var(--dim); }
 .detail { font-size: 13px; white-space: nowrap; }

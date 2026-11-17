@@ -61,18 +61,27 @@ description: 所有行程一頁睇清 — 日期、地區、類型、狀態。
       <td>
         {%- assign cpath = '/photos/' | append: t.trip_id | append: '/cover.jpg' -%}
         {%- assign cov = site.static_files | where: "path", cpath | first -%}
+        {%- capture turl -%}{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}{%- endcapture -%}
         <div class="trip-cell">
-          {%- if cov -%}
-            <a class="thumb" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">
-              <img src="{{ cpath | relative_url }}" alt="{{ t.title_zh }}" loading="lazy">
-            </a>
+          {%- if t.detail_path -%}
+            {%- if cov -%}
+              <a class="thumb" href="{{ turl }}"><img src="{{ cpath | relative_url }}" alt="{{ t.title_zh }}" loading="lazy"></a>
+            {%- else -%}
+              <a class="thumb thumb-empty" href="{{ turl }}"><span>未有相</span></a>
+            {%- endif -%}
           {%- else -%}
-            <a class="thumb thumb-empty" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">
-              <span>未有相</span>
-            </a>
+            {%- if cov -%}
+              <span class="thumb"><img src="{{ cpath | relative_url }}" alt="{{ t.title_zh }}" loading="lazy"></span>
+            {%- else -%}
+              <span class="thumb thumb-empty"><span>未有相</span></span>
+            {%- endif -%}
           {%- endif -%}
           <div class="trip-txt">
-            <a class="trip-link" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">{{ t.title_zh }}</a>
+            {%- if t.detail_path -%}
+              <a class="trip-link" href="{{ turl }}">{{ t.title_zh }}</a>
+            {%- else -%}
+              <span class="trip-link is-off">{{ t.title_zh }}</span>
+            {%- endif -%}
             {% if t.title_en %}<span class="en">{{ t.title_en }}</span>{% endif %}
           </div>
         </div>
@@ -80,7 +89,7 @@ description: 所有行程一頁睇清 — 日期、地區、類型、狀態。
       <td>{{ t.city | default: t.country | default: "—" }}</td>
       <td><span class="tag">{{ t.trip_type | default: "—" }}</span></td>
       <td class="num">{{ t.nights | default: "—" }}</td>
-      <td><a class="detail" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">睇 →</a></td>
+      <td>{% if t.detail_path %}<a class="detail" href="{{ '/trips/' | append: t.trip_id | append: '/' | relative_url }}">睇 →</a>{% else %}<span class="dim">未寫</span>{% endif %}</td>
     </tr>
     {% endfor %}
   </tbody>

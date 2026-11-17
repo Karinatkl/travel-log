@@ -27,6 +27,10 @@
     var p = String(t.path || "").replace(/^\/|\/$/g, "").replace(/\.md$/i, "");
     return BASE + "/" + p + "/";
   }
+  function linked(t) {
+    return t.path ? '<a href="' + link(t) + '">' + esc(t.title) + "</a>"
+                  : '<span class="cal-off">' + esc(t.title) + "</span>";
+  }
   function cover(t) { return BASE + "/photos/" + t.id + "/cover.jpg"; }
 
   /* ── 準備資料 ── */
@@ -144,7 +148,7 @@
     if (monthTrips.length) {
       monthTrips.forEach(function (t) {
         side += '<div class="cal-tcard" style="--c:' + t.color + '">' +
-                '<a href="' + link(t) + '">' + esc(t.title) + "</a>" +
+                linked(t) +
                 '<div class="meta">' + (t.start.getMonth() + 1) + "." + pad(t.start.getDate()) +
                 " – " + (t.end.getMonth() + 1) + "." + pad(t.end.getDate()) +
                 (t.nights ? " · " + t.nights + " 晚" : "") + "</div>" +
