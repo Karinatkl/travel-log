@@ -10,6 +10,7 @@ city: 深圳（寶安沙井／福田南山）
 trip_type: SPORT
 companions: WITH:Libby
 permalink: /trips/2026-11-shenzhen-qianhai-snow/
+spending: /trips/2026-11-shenzhen-qianhai-snow/spending/
 lat: 22.7153
 lng: 113.7692
 points:
@@ -18,6 +19,11 @@ points:
   - { name: 滿家樂燒鵝（會展中心）, lat: 22.5354, lng: 114.0560, solo: false }
   - { name: 深圳灣萬象城, lat: 22.5166, lng: 113.9353, solo: false }
   - { name: 皇崗口岸, lat: 22.5306, lng: 114.0735, solo: false }
+cover: /photos/2026-11-shenzhen-qianhai-snow/cover.jpg
+gallery:
+  - { file: "001-slope-selfie.jpg", caption: "初級道｜雙板第一課" }
+  - { file: "002-polar-bear.jpg", caption: "雪場吉祥物｜白熊合照" }
+  - { file: "003-piste-selfie.jpg", caption: "雪道前｜收板前影張" }
 ---
 
 > 兩日一夜深圳快閃：主題係去華發前海冰雪世界學雙板，第一日滑雪、第二日飲茶同飲咖啡，然後由皇崗過關返香港。
@@ -28,7 +34,7 @@ points:
 
 **交通：** 去程坐直通巴（時代廣場 → 深圳灣口岸，¥60），過關只花約 6 分鐘；回程的士到皇崗，直通巴返灣仔。市內短程全部 call 車。
 
-**住宿：** 匯展灣國際酒店（深圳國際會展中心・前海冰雪世界店），一晚；離雪場約 1.5 km，call 車 HK$13 就到。
+**住宿：** 匯展灣國際酒店（深圳國際會展中心・前海冰雪世界店），一晚（¥146）；離雪場約 1.5 km，call 車 HK$13 就到。
 
 **突發狀況：** 11/19 深圳有 Apex 活動，口岸附近封路管制，直通巴喺深圳灣口岸滯留到 12:16 先再開車，比原定行程遲咗成個鐘才到雪場。
 
@@ -81,13 +87,13 @@ points:
 
 ## 5. 住宿
 
-**匯展灣國際酒店（深圳國際會展中心・前海冰雪世界店）** — 深圳寶安沙井錦程路 1047 號，1 晚（11/19 check in、11/20 12:00 check out）。
+**匯展灣國際酒店（深圳國際會展中心・前海冰雪世界店）** — 深圳寶安沙井錦程路 1047 號，1 晚（¥146／晚）（11/19 check in、11/20 12:00 check out）。
 
 揀呢間係因為佢離雪場只約 1.5 km，滑完雪 call 車 HK$13 就到，唔使拖住裝備橫跨市區；第二日出去飲茶、過關都係 call 車解決。
 
 ## 6. 相片
 
-（待上載 —— 有 Drive 連結就貼，我抽最多 20 張、壓縮、做 1200×630 置中封面）
+{% include gallery.html trip_id="2026-11-shenzhen-qianhai-snow" cols="3" %}
 
 ## 7. 影片
 
@@ -95,4 +101,6 @@ points:
 
 ## 8. 花費
 
-（花費頁未開 —— 仲欠滿家樂燒鵝同酒店兩筆金額，補齊就開加密花費頁）
+👉 所有金額、分類、逐項明細同二人分帳，喺獨立一頁：
+
+**[花費明細 →]({{ '/trips/2026-11-shenzhen-qianhai-snow/spending/' | relative_url }})**
