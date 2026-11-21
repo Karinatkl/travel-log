@@ -6,14 +6,15 @@ title_en: 2026.1119-1120 Shenzhen (Qianhai Snow World)
 status: COMPLETED
 start_date: 2026-11-19
 end_date: 2026-11-20
-city: 深圳（前海／福田）
+city: 深圳（寶安沙井／福田南山）
 trip_type: SPORT
 companions: WITH:Libby
 permalink: /trips/2026-11-shenzhen-qianhai-snow/
-lat: 22.5370
-lng: 113.8970
+lat: 22.7153
+lng: 113.7692
 points:
-  - { name: 華發前海冰雪世界, lat: 22.5370, lng: 113.8970, solo: false }
+  - { name: 華發前海冰雪世界（寶安沙井）, lat: 22.7153, lng: 113.7692, solo: false }
+  - { name: 匯展灣國際酒店, lat: 22.7223, lng: 113.7833, solo: false }
   - { name: 滿家樂燒鵝（會展中心）, lat: 22.5354, lng: 114.0560, solo: false }
   - { name: 深圳灣萬象城, lat: 22.5166, lng: 113.9353, solo: false }
   - { name: 皇崗口岸, lat: 22.5306, lng: 114.0735, solo: false }
@@ -27,7 +28,7 @@ points:
 
 **交通：** 去程坐直通巴（時代廣場 → 深圳灣口岸，¥60），過關只花約 6 分鐘；回程的士到皇崗，直通巴返灣仔。市內短程全部 call 車。
 
-**住宿：** 雪場附近酒店，一晚（酒店名待補）。
+**住宿：** 匯展灣國際酒店（深圳國際會展中心・前海冰雪世界店），一晚；離雪場約 1.5 km，call 車 HK$13 就到。
 
 **突發狀況：** 11/19 深圳有 Apex 活動，口岸附近封路管制，直通巴喺深圳灣口岸滯留到 12:16 先再開車，比原定行程遲咗成個鐘才到雪場。
 
@@ -80,7 +81,9 @@ points:
 
 ## 5. 住宿
 
-雪場附近酒店，1 晚（11/19 check in、11/20 12:00 check out）。**（酒店名同房型待補 —— 你未提供）**
+**匯展灣國際酒店（深圳國際會展中心・前海冰雪世界店）** — 深圳寶安沙井錦程路 1047 號，1 晚（11/19 check in、11/20 12:00 check out）。
+
+揀呢間係因為佢離雪場只約 1.5 km，滑完雪 call 車 HK$13 就到，唔使拖住裝備橫跨市區；第二日出去飲茶、過關都係 call 車解決。
 
 ## 6. 相片
 
