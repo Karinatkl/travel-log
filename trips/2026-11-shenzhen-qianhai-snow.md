@@ -13,12 +13,6 @@ permalink: /trips/2026-11-shenzhen-qianhai-snow/
 spending: /trips/2026-11-shenzhen-qianhai-snow/spending/
 lat: 22.7153
 lng: 113.7692
-points:
-  - { name: 華發前海冰雪世界（寶安沙井）, lat: 22.7153, lng: 113.7692, solo: false }
-  - { name: 匯展灣國際酒店, lat: 22.7223, lng: 113.7833, solo: false }
-  - { name: 滿家樂燒鵝（會展中心）, lat: 22.5354, lng: 114.0560, solo: false }
-  - { name: 深圳灣萬象城, lat: 22.5166, lng: 113.9353, solo: false }
-  - { name: 皇崗口岸, lat: 22.5306, lng: 114.0735, solo: false }
 cover: /photos/2026-11-shenzhen-qianhai-snow/cover.jpg
 gallery:
   - { file: "001-slope-selfie.jpg", caption: "初級道｜雙板第一課" }
