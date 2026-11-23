@@ -13,6 +13,8 @@ permalink: /trips/2026-11-shenzhen-qianhai-snow/
 spending: /trips/2026-11-shenzhen-qianhai-snow/spending/
 lat: 22.7153
 lng: 113.7692
+points:
+  - { name: 華發前海冰雪世界, lat: 22.7153, lng: 113.7692, solo: false }
 cover: /photos/2026-11-shenzhen-qianhai-snow/cover.jpg
 gallery:
   - { file: "001-slope-selfie.jpg", caption: "初級道｜雙板第一課" }
