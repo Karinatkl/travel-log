@@ -17,9 +17,26 @@ points:
   - { name: 華發前海冰雪世界, lat: 22.7153, lng: 113.7692, solo: false }
 cover: /photos/2026-11-shenzhen-qianhai-snow/cover.jpg
 gallery:
-  - { file: "001-slope-selfie.jpg", caption: "初級道｜雙板第一課" }
-  - { file: "002-polar-bear.jpg", caption: "雪場吉祥物｜白熊合照" }
-  - { file: "003-piste-selfie.jpg", caption: "雪道前｜收板前影張" }
+  - { file: "001-entrance-hall.jpg", caption: "出發前｜弧形玻璃建築走廊" }
+  - { file: "002-huanggang-window.jpg", caption: "皇崗口岸｜玻璃幕牆前影張" }
+  - { file: "003-huanggang-silhouette.jpg", caption: "皇崗口岸｜窗景剪影" }
+  - { file: "004-snow-world-hall.jpg", caption: "入場｜雪場全景（TCL 大屏幕）" }
+  - { file: "005-mascot-slope.jpg", caption: "雪場入口｜同藍色吉祥物合照" }
+  - { file: "006-ski-ready.jpg", caption: "初級道｜雙板第一課" }
+  - { file: "007-ski-wave.jpg", caption: "初級道｜舉杖影相" }
+  - { file: "008-skiing-down.jpg", caption: "初級道｜落坡中" }
+  - { file: "009-rednet-skis.jpg", caption: "紅網旁｜抱住雙板" }
+  - { file: "010-rednet-smile.jpg", caption: "紅網旁｜另一個角度" }
+  - { file: "011-holding-skis.jpg", caption: "紅網旁｜同小朋友同框" }
+  - { file: "012-slope-view.jpg", caption: "雪道遠景｜一個人落坡" }
+  - { file: "013-hall-overview.jpg", caption: "雪場全景｜賽道同纜車" }
+  - { file: "014-slope-selfie.jpg", caption: "雪道前｜朋友滑過鏡頭前" }
+  - { file: "015-bear-solo.jpg", caption: "雪場吉祥物｜白熊合照" }
+  - { file: "016-bear-together.jpg", caption: "雪場吉祥物｜兩人＋白熊" }
+  - { file: "017-bear-and-mascot.jpg", caption: "白熊＋藍色吉祥物｜兩人合照" }
+  - { file: "018-both-selfie.jpg", caption: "收板前｜戴頭盔自拍" }
+  - { file: "019-hotel-room.jpg", caption: "匯展灣國際酒店｜房間" }
+  - { file: "020-roast-goose.jpg", caption: "滿家樂燒鵝｜晚餐" }
 ---
 
 > 兩日一夜深圳快閃：主題係去華發前海冰雪世界學雙板，第一日滑雪、第二日飲茶同飲咖啡，然後由皇崗過關返香港。
